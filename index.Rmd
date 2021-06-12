@@ -1,16 +1,20 @@
 ---
-title: "DonDon"
-description: |
-  My R project
+title: "SANGDON KIM "
+image: "sangdon.jpg"
+links:
+  - label: GitHub
+    url: "https://github.com/SANGDONKIM"
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/%EC%83%81%EB%8F%88-%EA%B9%80-b89985199/"
+  - label: Email
+    url: "mailto:kksd904@gmail.com"
 site: distill::distill_website
+output:
+  postcards::trestles
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-![](sangdon.jpg){width="150"}
-
-## About me:
-
-## Education:
+### Hey There!
+Welcome to my personal site! I'm enrolled in the Master program at University of Seoul. I specialize in using R, python for data analysis, data visualizations. I am also passionate about making bike-sharing systems more efficient. 
+  
+  
+If you would like to collaborate, please contact us by email.
