@@ -18,6 +18,17 @@
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png" medium="image" type="image/png" width="1863" height="834"/>
     </item>
     <item>
+      <title>EM algorithm</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm</link>
+      <description>A short description of the post.</description>
+      <category>Statistics</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm</guid>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/em-algorithm_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>Nonparametric Regression</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression</link>
@@ -29,15 +40,125 @@
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression/nonparametric-regression_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
-      <title>EM algorithm</title>
+      <title>Arima with R</title>
       <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm</link>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-arima-with-r</link>
+      <description>Arima, time series regression tutorial</description>
+      <category>Statistics</category>
+      <category>time series</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-arima-with-r</guid>
+      <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-arima-with-r/arima-with-r_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>multi classification with tidymodels</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-multi-classification-with-tidymodels</link>
+      <description>tidymodels을 이용한 multi classification 모델 적합</description>
+      <category>Machine learning</category>
+      <category>Multi classification</category>
+      <category>tidymodels</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-multi-classification-with-tidymodels</guid>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>tidymodels tutorial</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial</link>
+      <description>tidymodels에 대한 간단한 소개</description>
+      <category>Machine learning</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial</guid>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial/tidymodels-tutorial_files/figure-html5/unnamed-chunk-15-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Generalized Linear Model using R</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r</link>
+      <description>glm 관련 패키지 glm, glmnet, h2o 성능 비교</description>
+      <category>Statistics</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r</guid>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r/generalized-linear-model-using-r_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>ADMM</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-admm</link>
+      <description>ADMM lasso example</description>
+      <category>Optimization</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-admm</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Gradient Boosting Regression</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-gradient-boosting-regression</link>
+      <description>GBM에 대한 간략한 소개 및 적용</description>
+      <category>Machine learning</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-gradient-boosting-regression</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-gradient-boosting-regression/gradient-boosting-regression_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Map visualization using sf</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</link>
+      <description>sf 패키지에 대한 간략한 소개</description>
+      <category>Visualization</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/map-visualization-using-sf_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Split the map into a grid using sf</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf</link>
+      <description>sf 패키지를 이용해서 지도를 grid로 나누고 특정 좌표가 몇번째 grid에 있는지 알아보기</description>
+      <category>Visualization</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf/split-the-map-into-a-grid-using-sf_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>tmap in R</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</link>
+      <description>tmap 패키지에 대한 간략한 소개 및 leaflet 연동 방법</description>
+      <category>Visualization</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/tmap-in-r_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>kernel density estimation</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation</link>
       <description>A short description of the post.</description>
       <category>Statistics</category>
       <category>R</category>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm</guid>
-      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/em-algorithm_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation</guid>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation/kernel-density-estimation_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Markov Chain Monte Carlo</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</link>
+      <description>A short description of the post.</description>
+      <category>Statistics</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</guid>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo/markov-chain-monte-carlo_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,461 @@
+---
+title: "multi classification with tidymodels"
+description: |
+  tidymodels을 이용한 multi classification 모델 적합 
+author:
+  - name: dondon
+    url: {}
+date: 2021-06-02
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    highlight: default
+    highlight_downlit: true
+    code_folding: false
+categories:
+  - Machine learning
+  - Multi classification
+  - tidymodels
+  - ADP
+  - R
+---
+
+
+# Multi classification tutorial
+
+ADP 시험을 대비해서 multi classification tutorial을 정리해보겠다. R kaggle 스터디를 진행하면서 4월달에 데이콘에 올라온 신용카드 사용자 연체 예측 AI 경진대회에 참여했다. 정형 데이터 분석 문제이지만 multi classification 문제여서 나름 재밌게 진행했다. 월간 데이콘 대회이므로 1등부터 10등까지 솔루션이 이미 나와있다. 자세한 사항은 데이콘 홈페이지를 참고바란다.
+
+ADP 시험 대비이므로 데이콘 데이터의 일부를 이용해서 튜토리얼을 작성해본다. 데이터의 일부를 사용하기 때문에 모델 performance는 안좋지만 코드와 분석 플로우 위주로 봐주시면 좋겠다.
+
+# Preparations 
+
+## Libraries
+
+```{r load_lib, message=FALSE, warning=FALSE, results='hide'}
+library(tidymodels)
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(magrittr)
+library(data.table)
+library(gridExtra)
+library(themis)
+library(ggmosaic)
+library(embed)
+library(stacks)
+
+theme_set(theme_bw())
+
+```
+
+## Data load
+
+```{r}
+file_path <- getwd()
+files <- list.files(file_path)
+files
+```
+
+```{r, message=FALSE}
+train <- read_csv(file.path(file_path, "train.csv")) %>% janitor::clean_names()
+# test <- read_csv(file.path(file_path, "test.csv")) %>% janitor::clean_names() # target 없으므로 tutorial에서는 제외함 
+
+# sampling 
+set.seed(123)
+ind <- sample(1:26457, 2000, replace = F)
+dat <- train[ind, ]
+
+dat$credit %>% table()
+
+splits <- initial_split(dat, prop = 0.7, strata = credit)
+
+train <- training(splits)
+test <- testing(splits)
+```
+
+# Data overview (데이터 기본정보) 
+
+## train data
+
+```{r}
+head(train)
+skim(train)
+```
+
+## test data
+
+```{r}
+head(test)
+skim(test)
+```
+
+# data preprocessing
+
+## Change variable type
+
+```{r}
+cols1 <- colnames(train)[c(13:18, 20)]
+train %>% 
+    mutate_if(is.character, as.factor) %>% 
+    mutate_at(cols1, funs(factor(.))) -> train
+
+cols2 <- colnames(train)[c(13:18)]
+test %>% 
+    mutate_if(is.character, as.factor) %>% 
+    mutate_at(cols2, funs(factor(.))) -> test
+```
+
+# Univariate visualization
+
+## income_type : 소득 분류
+
+commercial associate, pensioner(연금 수급자), state servant(공무원), student, working
+
+```{r}
+ymd_rec <- train %>% 
+  recipe(credit~.) %>% 
+  step_mutate(
+              days_birth = days_birth + 25152, # 출생일
+              days_employed = days_employed + 15713, # 업무 시작일  
+              begin_month = begin_month + 60) %>% 
+  step_mutate(
+              year_birth = round(days_birth/365), 
+              month_birth = round(days_birth/30), 
+              year_employed = round(days_employed/365),
+              month_employed = round(days_employed/30), 
+              begin_year = begin_month/12) %>% 
+  prep(training = train) 
+
+train_eda <- juice(ymd_rec)
+train_eda %>% 
+  ggplot(aes(x = income_type)) + geom_bar() + 
+  aes(stringr::str_wrap(income_type, 15)) + 
+  xlab('income_type')+
+  geom_label(stat = 'count', aes(label = ..count..))
+
+train_eda %>% 
+  ggplot(aes(x = income_type, y = income_total)) + 
+  geom_boxplot(aes(fill = income_type)) 
+
+train_eda %>% 
+  filter(!is.na(income_type), !is.na(credit)) %>% 
+  ggplot()+geom_mosaic(aes(x = product(income_type, credit), fill = income_type))
+
+```
+
+## house_type : 생활 방식
+
+co-op apartment(주택 협동조합), house apartment, municipal apartment(공공 주택), office apartment(회사), rented apartment(임대 주택), with parents
+
+```{r}
+train_eda %>% 
+  ggplot(aes(x = house_type)) + geom_bar() + 
+  aes(stringr::str_wrap(house_type, 15)) + 
+  xlab('house_type')+
+  geom_label(stat = 'count', aes(label = ..count..))
+
+train_eda %>% 
+  ggplot(aes(x = house_type, y = income_total)) + 
+  aes(stringr::str_wrap(house_type, 15)) +
+  xlab('house_type')+
+  geom_boxplot(aes(fill = house_type)) 
+  
+
+train_eda %>% 
+  filter(!is.na(house_type), !is.na(credit)) %>% 
+  ggplot()+geom_mosaic(aes(x = product(house_type, credit), fill = house_type))
+
+```
+
+## occupation type
+
+accountants, cleaning staff, cooking staff, core staff(정규직), drivers, high skill tech staff, HR staff, IT staff, Laborers, Low-skill Laborers, managers, medicine staff
+
+```{r}
+train_eda %>% 
+  ggplot(aes(x = occyp_type)) + geom_bar() + 
+  geom_label(stat = 'count', aes(label = ..count..))+
+  coord_flip()
+
+
+train_eda %>% 
+  filter(!is.na(occyp_type), !is.na(credit)) %>% 
+  ggplot(aes(x = occyp_type, y = income_total, fill = occyp_type)) + 
+  geom_boxplot() + 
+  coord_flip()
+
+train_eda %>% 
+  filter(!is.na(occyp_type), !is.na(credit)) %>% 
+  ggplot()+geom_mosaic(aes(x = product(occyp_type, credit), fill =occyp_type))
+
+```
+
+# Recipe
+
+```{r}
+model_rec <- train %>% 
+  recipe(credit~.) %>%
+  step_rm(flag_mobil, index) %>% 
+  step_mutate(
+              days_birth = days_birth + 25152, # 출생일
+              days_employed = days_employed + 15713, # 업무 시작일  
+              begin_month = begin_month + 60) %>% 
+  step_mutate(
+              month_birth = round(days_birth/30), 
+              month_employed = round(days_employed/30)) %>%
+  step_mutate(
+              disc_employed = month_employed) %>%
+  
+#  step_cut(disc_birth, breaks = c(10, 20, 30, 40)) %>% 
+  step_cut(disc_employed, breaks = c(407, 458, 491, 523, 12699)) %>%
+#  step_cut(disc_begin, breaks = c(1, 2, 3, 4)) %>% 
+  
+  step_other(income_type, occyp_type, house_type, threshold = 0.1, other = 'infreq_combined') %>% 
+  
+  step_impute_bag(occyp_type, impute_with = imp_vars(car, reality, income_total, income_type, edu_type, house_type, family_type, family_size),  trees = 100) %>% 
+  
+#  step_dummy(all_nominal(), -credit, one_hot = TRUE) %>%
+  step_normalize(all_numeric(), -all_outcomes()) %>% 
+  step_rm(days_birth, days_employed, begin_month, month_employed)
+  #step_smote(credit, over_ratio = tune()) 
+
+```
+
+## train/test
+
+```{r}
+train2 <- model_rec %>% prep(training = train) %>% juice()
+test2 <- model_rec %>% prep() %>% bake(new_data = test)
+```
+
+# validation set
+
+```{r}
+set.seed(20210505)
+vb_folds <- vfold_cv(train2, v = 3, strata = credit)
+```
+
+## stacking param
+
+```{r}
+ctrl_grid <- control_stack_grid()
+```
+
+# randomforest setting
+
+## randomforest hyperparameter setting
+
+```{r}
+rf_spec <- rand_forest(
+  mtry = tune(), 
+  trees = 1000
+) %>% 
+  set_mode('classification') %>% 
+  set_engine('ranger')
+```
+
+## workflow model setting
+
+```{r}
+rf_wf <- workflow() %>% 
+    add_formula(credit~.) %>% 
+    add_model(rf_spec)
+```
+
+## hyperparameter 튜닝
+
+```{r}
+library(tictoc)
+tic()
+
+doParallel::registerDoParallel()
+set.seed(1234)
+
+rf_res <- tune_grid(
+    rf_wf,  
+    resamples = vb_folds, 
+    grid = 5,
+    metrics = metric_set(mn_log_loss), # multi class 일 때 
+    control = ctrl_grid    
+)
+toc() 
+rf_res$.metrics
+```
+
+## Final model update
+
+```{r}
+best_param_rf <- select_best(rf_res) 
+final_rf <- finalize_workflow(rf_wf, best_param_rf)
+final_rf
+```
+
+## final model setting
+
+```{r}
+final_rf_model <- finalize_model(rf_spec, best_param_rf) 
+```
+
+## final model workflow에 업데이트
+
+```{r}
+final_rf_workflow <- rf_wf %>% update_model(final_rf_model)
+```
+
+## final model 학습
+
+```{r}
+rf_fit <- fit(final_rf_workflow, data = train2)
+```
+
+# Result
+
+## Prediction
+
+```{r}
+pred_rf <- 
+    predict(rf_fit, test2, type = 'prob')
+pred_rf %>% head() 
+```
+
+## confusion matrix
+
+```{r}
+rf_res1 <- tune_grid(
+    rf_wf,  
+    resamples = vb_folds, 
+    grid = 5, 
+    control = control_resamples(save_pred = T)   
+)
+rf_res1 %>% 
+  collect_predictions() %>% 
+  conf_mat(credit, .pred_class)
+
+rf_res1 %>% 
+  collect_metrics()
+
+rf_fit %>% 
+  predict(test2) %>% 
+  bind_cols(test2$credit) %>% 
+  conf_mat(...2, .pred_class)
+
+  
+
+```
+
+# regularized multinomial regression
+
+```{r}
+linear_rec <- train %>% 
+  recipe(credit~.) %>%
+  step_rm(flag_mobil, index) %>% 
+  step_mutate(
+              days_birth = days_birth + 25152, # 출생일
+              days_employed = days_employed + 15713, # 업무 시작일  
+              begin_month = begin_month + 60) %>% 
+  step_mutate(
+              year_birth = round(days_birth/365), 
+              month_birth = round(days_birth/30), 
+              year_employed = round(days_employed/365),
+              month_employed = round(days_employed/30), 
+              begin_year = begin_month/12) %>%
+  step_other(income_type, occyp_type, house_type, threshold = 0.1, other = 'infreq_combined') %>% 
+  
+  step_impute_bag(occyp_type, impute_with = imp_vars(car, reality, income_total, income_type, edu_type, house_type, family_type, family_size),  trees = 100) %>% 
+  step_BoxCox(all_numeric()) %>% 
+  step_dummy(all_nominal(), -credit, one_hot = TRUE) %>%
+  step_smote(credit, over_ratio = 0.7) %>% 
+  step_rm(days_birth, days_employed, begin_month, month_birth, month_employed) %>% 
+  prep(training = train)
+  
+
+```
+
+```{r}
+train3 <- juice(linear_rec)
+test3 <- bake(linear_rec, new_data = test)
+```
+
+```{r}
+multi_spec <- multinom_reg(mode = "classification",
+    penalty = tune(), 
+    mixture = tune()) %>%
+    set_engine("glmnet") 
+```
+
+```{r}
+lambda_grid <- grid_max_entropy(parameters(penalty(), mixture()), size = 20)
+```
+
+```{r}
+multi_wf <- workflow() %>%
+  add_model(multi_spec) %>% 
+  add_formula(credit ~ .)
+```
+
+```{r}
+multi_spec_tbl <- tune_grid(
+  multi_wf, 
+  model = multi_spec, 
+  resamples = vb_folds, 
+  grid = lambda_grid, 
+  metrics = metric_set(mn_log_loss),
+  control = ctrl_grid
+)
+multi_spec_tbl
+```
+
+```{r}
+multi_best_param <- select_best(multi_spec_tbl) # 0.0003296647	0.9893142	Preprocessor1_Model49
+final_multinom <- finalize_workflow(multi_wf, multi_best_param)
+```
+
+```{r}
+multi_final_model <- finalize_model(multi_spec, multi_best_param) 
+```
+
+```{r}
+multi_final_workflow <- multi_wf %>% update_model(multi_final_model)
+```
+
+```{r}
+multi_fit <- fit(multi_final_workflow, data = train3)
+```
+
+```{r}
+pred_multinom <- 
+    predict(multi_fit, test3, type = 'prob') 
+pred_multinom %>% head()
+
+```
+
+# stacking
+
+```{r}
+credit_stacking <- 
+  stacks() %>% 
+  add_candidates(rf_res) %>% 
+  add_candidates(multi_spec_tbl) %>% 
+  blend_predictions() %>% 
+  fit_members()
+
+
+result <- predict(credit_stacking, test2)
+
+```
+
+## performance 
+```{r}
+result %>% 
+  bind_cols(test2$credit) %>% 
+  conf_mat(...2, .pred_class)
+
+rf_fit %>% 
+  predict(test2) %>% 
+  bind_cols(test2$credit) %>% 
+  conf_mat(...2, .pred_class) %>% 
+  summary()
+
+```

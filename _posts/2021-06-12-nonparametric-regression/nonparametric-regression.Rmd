@@ -1,11 +1,11 @@
 ---
 title: "Nonparametric Regression"
 description: |
-  A short description of the post.
+  Nonparametric regression에 대한 개괄적인 소개 
 author:
   - name: dondon
     url: {}
-date: 2021-06-12
+date: 2021-01-05
 output:
   distill::distill_article:
     toc: true

@@ -1,11 +1,11 @@
 ---
 title: "EM algorithm"
 description: |
-  A short description of the post.
+  EM 알고리즘에 대한 소개 및 가우시안 혼합 모형 예제 
 author:
   - name: dondon
     url: {}
-date: 2021-06-12
+date: 2021-01-06
 output:
   distill::distill_article:
     toc: true
