@@ -1,0 +1,16 @@
+---
+title: "DonDon"
+description: |
+  My R project
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+![](sangdon.jpg){width="150"}
+
+## About me:
+
+## Education:

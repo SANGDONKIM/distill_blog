@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/2021-06-12-building-distill/",
+    "title": "Building a {distill} website",
+    "description": "How I built this site using {distill}",
+    "author": [
+      {
+        "name": "dondon",
+        "url": {}
+      }
+    ],
+    "date": "2021-06-12",
+    "categories": [],
+    "contents": "\r\nHere is where I will talk about building this website.\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-06-12-building-distill/image1.png",
+    "last_modified": "2021-06-12T15:46:08+09:00",
+    "input_file": {}
+  }
+]
