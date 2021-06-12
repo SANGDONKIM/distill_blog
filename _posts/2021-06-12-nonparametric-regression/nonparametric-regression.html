@@ -88,27 +88,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Nonparametric Regression</title>
 
+  <meta property="description" itemprop="description" content="A short description of the post."/>
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-01-05"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-01-05"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-06-12"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-06-12"/>
   <meta name="article:author" content="dondon"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Nonparametric Regression"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="A short description of the post."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Nonparametric Regression"/>
+  <meta property="twitter:description" content="A short description of the post."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Nonparametric Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["dondon"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-01-05"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","highlight","highlight_downlit","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["default"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["statistics","R"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Nonparametric Regression"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["dondon"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-06-12"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","highlight","highlight_downlit","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["default"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Statistics","R"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1455,7 +1458,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Nonparametric Regression","authors":[{"author":"dondon","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-05T00:00:00.000+09:00","citationText":"dondon, 2021"}
+{"title":"Nonparametric Regression","description":"A short description of the post.","authors":[{"author":"dondon","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-06-12T00:00:00.000+09:00","citationText":"dondon, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1468,17 +1471,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Nonparametric Regression</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-<div class="dt=tag">statistics</div>
+<div class="dt=tag">Statistics</div>
 <div class="dt=tag">R</div>
 </div>
 <!--/radix_placeholder_categories-->
-
+<p><p>A short description of the post.</p></p>
 </div>
 
 <div class="d-byline">
   dondon true 
   
-<br/>2021-01-05
+<br/>2021-06-12
 </div>
 
 <div class="d-article">
@@ -1486,7 +1489,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#non-parametric-regression-concept">Non-parametric regression concept</a>
+<li><a href="#non-parametric-regression">Non-parametric regression</a>
 <ul>
 <li><a href="#regressogram">Regressogram</a></li>
 <li><a href="#example">Example</a></li>
@@ -1495,7 +1498,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 </nav>
 </div>
-<h1 id="non-parametric-regression-concept">Non-parametric regression concept</h1>
+<h1 id="non-parametric-regression">Non-parametric regression</h1>
 <p>비모수 회귀분석은 함수의 형태를 가정하지 않는 회귀모형을 의미한다. 모수적 회귀모형에서는 보통 <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + ... + \beta_pX_p + \epsilon\)</span> 형태의 선형성을 가정했다(모수적 회귀모형에는 선형성을 가정하지 않는 비선형 회귀모형도 포함된다).<br />
 </p>
 <p>반면에 비모수 회귀모형에서는 고정된 함수의 형태를 가정하지 않고 단순히 smooth function을 가정한다.<br />
@@ -1532,7 +1535,7 @@ Y = m(X) + \epsilon, \quad m(x) = E(Y|X = x), \quad E(\epsilon) = 0
         <span class='va'>n</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
         <span class='va'>B</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='va'>left</span>,<span class='va'>right</span>,length<span class='op'>=</span><span class='va'>k</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span>
         <span class='co'># 어떤 값이 구간에 있을 때 어느 구간에 속할지 알려주는 함수</span>NA<span class='va'>WhichBin</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/findInterval.html'>findInterval</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>B</span><span class='op'>)</span>  
-        <span class='co'># 각 구간에 포함되어 있는 관측치의 갯수</span>NA<span class='va'>N</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tabulate.html'>tabulate</a></span><span class='op'>(</span><span class='va'>WhichBin</span><span class='op'>)</span>  
+        <span class='co'># 각 구간에 포함되어 있는 관측치의 개수</span>NA<span class='va'>N</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tabulate.html'>tabulate</a></span><span class='op'>(</span><span class='va'>WhichBin</span><span class='op'>)</span>  
         <span class='va'>m.hat</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>k</span><span class='op'>)</span>
         <span class='kw'>for</span><span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>k</span><span class='op'>)</span><span class='op'>{</span>
                 <span class='kw'>if</span><span class='op'>(</span><span class='va'>N</span><span class='op'>[</span><span class='va'>j</span><span class='op'>]</span><span class='op'>&gt;</span><span class='fl'>0</span><span class='op'>)</span> <span class='va'>m.hat</span><span class='op'>[</span><span class='va'>j</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>WhichBin</span> <span class='op'>==</span> <span class='va'>j</span><span class='op'>]</span><span class='op'>)</span>

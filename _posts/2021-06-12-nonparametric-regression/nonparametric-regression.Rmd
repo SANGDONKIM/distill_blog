@@ -1,10 +1,11 @@
 ---
 title: "Nonparametric Regression"
 description: |
+  A short description of the post.
 author:
   - name: dondon
     url: {}
-date: 2021-01-05
+date: 2021-06-12
 output:
   distill::distill_article:
     toc: true
@@ -14,7 +15,7 @@ output:
     highlight_downlit: true
     code_folding: false
 categories:
-  - statistics
+  - Statistics
   - R
 ---
 
@@ -23,7 +24,7 @@ library(tidyverse)
 theme_set(theme_bw())
 ```
 
-# Non-parametric regression concept 
+# Non-parametric regression
 
 비모수 회귀분석은 함수의 형태를 가정하지 않는 회귀모형을 의미한다. 모수적 회귀모형에서는 보통 $Y = \beta_0 + \beta_1X_1 + ... + \beta_pX_p + \epsilon$ 형태의 선형성을 가정했다(모수적 회귀모형에는 선형성을 가정하지 않는 비선형 회귀모형도 포함된다).\
 
@@ -48,7 +49,7 @@ $$B_1 = [0, h], \quad B_2= [h, 2h], ...  $$ $n_j$ : $B_j$에 포함되는 관측
 $B_j$ 구간에서의 $Y_i$들의 평균 $\bar{Y}_j$는 다음과 같이 정의된다.\
 $$\bar{Y}_j = \frac{1}{n_j} \sum_{X_i \in B_j} Y_i$$
 
-마지막으로 $\hat{m}(x)$는 모든 $B_j$구간에서의 $\bar{Y}_j$의 합으로 정의된다. $$\hat{m}(x) = \sum_{j = 1}^k \bar{Y_j}I(x \in B_j)$$ 
+마지막으로 $\hat{m}(x)$는 모든 $B_j$구간에서의 $\bar{Y}_j$의 합으로 정의된다. $$\hat{m}(x) = \sum_{j = 1}^k \bar{Y_j}I(x \in B_j)$$
 
 ## Example
 
@@ -61,9 +62,7 @@ x = runif(n, -2, 2)
 y = sin(x)+rnorm(n, mean = 0, sd = 1/3)
 ```
 
-
 구간의 갯수 k를 어떻게 지정하는지에 따라 $\hat{m}(x)$는 undersmooth될 수도 있고 oversmooth될 수도 있다. 따라서 적절한 k를 지정하는 것이 중요하다(뒤에 cross-validation 참고).
-
 
 ```{r}
 running_mean = function(x,y,left,right,k){
@@ -71,7 +70,7 @@ running_mean = function(x,y,left,right,k){
         B = seq(left,right,length=k+1)
         # 어떤 값이 구간에 있을 때 어느 구간에 속할지 알려주는 함수
         WhichBin = findInterval(x,B)  
-        # 각 구간에 포함되어 있는 관측치의 갯수
+        # 각 구간에 포함되어 있는 관측치의 개수
         N = tabulate(WhichBin)  
         m.hat = rep(0,k)
         for(j in 1:k){
@@ -101,8 +100,6 @@ HoRM::regressogram(x = x, y = y, nbins = 10, show.bins = T, show.lines = T, show
 ```
 
 $k = 10$일 때 red line을 보면 적절하게 추정된 것으로 보인다. $k = 30$일 때 blue line을 보면 oversmooth된 것처럼 보인다.
-
-
 
 ## Kernel estimator
 

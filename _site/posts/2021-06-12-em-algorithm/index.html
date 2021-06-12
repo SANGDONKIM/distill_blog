@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -86,11 +86,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>DonDon: Building a {distill} website</title>
+<title>DonDon: EM algorithm</title>
 
-<meta property="description" itemprop="description" content="How I built this site using {distill}"/>
+<meta property="description" itemprop="description" content="A short description of the post."/>
 
-<link rel="canonical" href="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/"/>
+<link rel="canonical" href="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2021-06-12"/>
@@ -98,28 +98,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="article:author" content="dondon"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="DonDon: Building a {distill} website"/>
+<meta property="og:title" content="DonDon: EM algorithm"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="How I built this site using {distill}"/>
-<meta property="og:url" content="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/"/>
-<meta property="og:image" content="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png"/>
-<meta property="og:image:width" content="1863"/>
-<meta property="og:image:height" content="834"/>
+<meta property="og:description" content="A short description of the post."/>
+<meta property="og:url" content="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/"/>
+<meta property="og:image" content="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/em-algorithm_files/figure-html5/unnamed-chunk-1-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="DonDon"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="DonDon: Building a {distill} website"/>
-<meta property="twitter:description" content="How I built this site using {distill}"/>
-<meta property="twitter:url" content="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/"/>
-<meta property="twitter:image" content="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png"/>
-<meta property="twitter:image:width" content="1863"/>
-<meta property="twitter:image:height" content="834"/>
+<meta property="twitter:title" content="DonDon: EM algorithm"/>
+<meta property="twitter:description" content="A short description of the post."/>
+<meta property="twitter:url" content="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/"/>
+<meta property="twitter:image" content="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/em-algorithm_files/figure-html5/unnamed-chunk-1-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="DonDon: Building a {distill} website"/>
-<meta name="citation_fulltext_html_url" content="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/"/>
+<meta name="citation_title" content="DonDon: EM algorithm"/>
+<meta name="citation_fulltext_html_url" content="https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/"/>
 <meta name="citation_online_date" content="2021/06/12"/>
 <meta name="citation_publication_date" content="2021/06/12"/>
 <meta name="citation_author" content="dondon"/>
@@ -127,12 +127,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Building a {distill} website"]},{"type":"character","attributes":{},"value":["How I built this site using {distill}"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["dondon"]}]}]},{"type":"character","attributes":{},"value":["06-12-2021"]},{"type":"character","attributes":{},"value":["image1.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/"]},{"type":"character","attributes":{},"value":["https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["EM algorithm"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["dondon"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-06-12"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","highlight","highlight_downlit","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["default"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Statistics","R"]},{"type":"character","attributes":{},"value":["https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/"]},{"type":"character","attributes":{},"value":["https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["image1.PNG"]}
+  {"type":"character","attributes":{},"value":["em-algorithm_files/anchor-4.2.2/anchor.min.js","em-algorithm_files/bowser-1.9.3/bowser.min.js","em-algorithm_files/distill-2.2.21/template.v2.js","em-algorithm_files/figure-html5/unnamed-chunk-1-1.png","em-algorithm_files/figure-html5/unnamed-chunk-10-1.png","em-algorithm_files/figure-html5/unnamed-chunk-10-2.png","em-algorithm_files/header-attrs-2.8/header-attrs.js","em-algorithm_files/jquery-1.11.3/jquery.min.js","em-algorithm_files/popper-2.6.0/popper.min.js","em-algorithm_files/tippy-6.2.7/tippy-bundle.umd.min.js","em-algorithm_files/tippy-6.2.7/tippy-light-border.css","em-algorithm_files/tippy-6.2.7/tippy.css","em-algorithm_files/tippy-6.2.7/tippy.umd.min.js","em-algorithm_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2400,7 +2400,7 @@ gtag('config', 'G-LESWHZMHS2');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Building a {distill} website","description":"How I built this site using {distill}","authors":[{"author":"dondon","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-06-12T00:00:00.000+09:00","citationText":"dondon, 2021"}
+{"title":"EM algorithm","description":"A short description of the post.","authors":[{"author":"dondon","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-06-12T00:00:00.000+09:00","citationText":"dondon, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2432,21 +2432,338 @@ gtag('config', 'G-LESWHZMHS2');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Building a {distill} website</h1>
+<h1>EM algorithm</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../blog.html#category:Statistics" class="dt-tag">Statistics</a>
+  <a href="../../blog.html#category:R" class="dt-tag">R</a>
+</div>
 <!--/radix_placeholder_categories-->
-<p><p>How I built this site using {distill}</p></p>
+<p><p>A short description of the post.</p></p>
 </div>
 
 <div class="d-byline">
-  dondon  
+  dondon true 
   
-<br/>06-12-2021
+<br/>2021-06-12
 </div>
 
 <div class="d-article">
-<p>Here is where I will talk about building this website.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#em-algorithm-for-two-component-gaussian-mixture-model">EM algorithm for Two component Gaussian Mixture model</a>
+<ul>
+<li><a href="#two-component-gaussian-mixture-another-example">Two component Gaussian Mixture another example</a></li>
+<li><a href="#multinomial-example">Multinomial example</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<h1 id="em-algorithm-for-two-component-gaussian-mixture-model">EM algorithm for Two component Gaussian Mixture model</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.39</span>, <span class='fl'>0.12</span>, <span class='fl'>0.94</span>, <span class='fl'>1.67</span>, <span class='fl'>1.76</span>, <span class='fl'>2.44</span>, <span class='fl'>3.72</span>, <span class='fl'>4.28</span>, <span class='fl'>4.92</span>, <span class='fl'>5.53</span>,
+         <span class='fl'>0.06</span>, <span class='fl'>0.48</span>, <span class='fl'>1.01</span>, <span class='fl'>1.68</span>, <span class='fl'>1.80</span>, <span class='fl'>3.25</span>, <span class='fl'>4.12</span>, <span class='fl'>4.60</span>, <span class='fl'>5.28</span>, <span class='fl'>6.22</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>dat</span>, probability <span class='op'>=</span> <span class='cn'>T</span>, breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.5</span>, <span class='fl'>6.5</span>, length.out <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>, main <span class='op'>=</span> <span class='st'>''</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="em-algorithm_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+</div>
+<p>n = 20 데이터는 bimodal 형태를 띄고 있다. 이 데이터는 어떤 분포로부터 나왔는가?</p>
+<p>우리가 아는 대부분의 분포는 unimodal(단봉) 형태로 bimodal(쌍봉) 형태에 대해서는 잘모른다. 따라서 추론을 해야하는데 가장 쉽게 생각할 수 있는 것은 두개의 정규분포를 혼합한 형태로 생각하는 것이다. 이러한 분포를 mixture distribution이라고 한다. bimodal(쌍봉) 형태의 분포는 두 개의 정규분포를 결합한 mixture distribution이라는 가설을 세웠으므로 문제를 풀기 위해서는 분포의 형태를 결정하는 모수를 알아야 한다. 즉, 정규 분포에 대한 모수 <span class="math inline">\(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2\)</span>를 알아야 한다. 추가적으로 두 분포 중에 데이터가 어느 분포에서 나왔는지를 수량화하는 모수 <span class="math inline">\(P(Z = 1) = \pi\)</span>를 추가한다. 따라서 가설을 풀기 위해서는 <span class="math inline">\(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \pi\)</span> 총 5개의 모수를 추정해야 한다. 만약에 <span class="math inline">\(P(Z = 1) = \pi\)</span>를 알고 있으면 나머지 4개의 모수는 두 분포가 독립이므로 MLE를 통해서 구할 수 있다. 하지만 <span class="math inline">\(Z\)</span>는 가상적으로 만든 random variable이므로 <span class="math inline">\(\pi\)</span>를 알 수 없다. 따라서 <span class="math inline">\(\pi\)</span>를 구하기 위해서 iteration을 수렴할 때까지 해서 <span class="math inline">\(\pi\)</span>를 추정한다.</p>
+<p><span class="math inline">\(data = (0.39, 0.12, 0.94, 1.67, 1.76, 2.44, 3.72, 4.28, 4.92, 5.53,0.06, 0.48, 1.01, 1.68, 1.80, 3.25, 4.12, 4.60, 5.28, 6.22)\)</span></p>
+<ul>
+<li><span class="math inline">\(Y_1 \sim N(\mu_1, \sigma_1^2)\)</span></li>
+<li><span class="math inline">\(Y_2 \sim N(\mu_2, \sigma_2^2)\)</span></li>
+<li><span class="math inline">\(Y = (1-Z)Y_1 + ZY_2\)</span></li>
+<li><span class="math inline">\(P(Z = 1) = \pi\)</span>, <span class="math inline">\(Z = 0\)</span> if <span class="math inline">\(\mu_2, \sigma_2^2\)</span>을 모수로 갖는 정규분포일 경우</li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(\hat{\mu_1},\hat{\mu_2},\hat{\sigma_1}^2, \hat{\sigma_2}^2, \hat{\pi}\)</span> 에 대한 초기값을 설정한다.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.39</span>, <span class='fl'>0.06</span>, <span class='fl'>0.12</span>, <span class='fl'>0.48</span>, <span class='fl'>0.94</span>, <span class='fl'>1.01</span>, <span class='fl'>1.67</span>, <span class='fl'>1.68</span>, <span class='fl'>1.76</span>, <span class='fl'>1.80</span>, <span class='fl'>2.44</span>, <span class='fl'>3.25</span>, <span class='fl'>3.72</span>, <span class='fl'>4.12</span>, <span class='fl'>4.28</span>, <span class='fl'>4.60</span>, <span class='fl'>4.92</span>, <span class='fl'>5.28</span>, <span class='fl'>5.53</span>, <span class='fl'>6.22</span> <span class='op'>)</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
+<span class='va'>y1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.39</span>, <span class='fl'>0.06</span>, <span class='fl'>0.12</span>, <span class='fl'>0.48</span>, <span class='fl'>0.94</span>, <span class='fl'>1.01</span>, <span class='fl'>1.67</span>, <span class='fl'>1.68</span>, <span class='fl'>1.76</span>, <span class='fl'>1.80</span>, <span class='fl'>2.44</span><span class='op'>)</span>
+<span class='va'>y2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3.25</span>, <span class='fl'>3.72</span>, <span class='fl'>4.12</span>, <span class='fl'>4.28</span>, <span class='fl'>4.60</span>, <span class='fl'>4.92</span>, <span class='fl'>5.28</span>, <span class='fl'>5.53</span>, <span class='fl'>6.22</span><span class='op'>)</span>
+<span class='va'>mu1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y1</span><span class='op'>)</span>
+<span class='va'>mu2</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y2</span><span class='op'>)</span>
+<span class='va'>s1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>y1</span><span class='op'>)</span>
+<span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>y2</span><span class='op'>)</span>
+<span class='va'>phat</span> <span class='op'>&lt;-</span> <span class='fl'>0.5</span>
+</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>E-step</li>
+</ol>
+<p><span class="math display">\[\hat {\gamma}_i = \frac{\hat{\pi}\phi_{\hat{\theta}_2}(y_i)}{(1-\hat{\pi}) \phi_{\hat{\theta}_1}(y_i)+\hat{\pi}\phi_{\hat{\theta}_2}(y_i)}\]</span> <span class="math inline">\(i = 1,2,....,n\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span> 
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>a</span> <span class='op'>&lt;-</span> <span class='va'>phat</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu2</span>, sd <span class='op'>=</span> <span class='va'>s2</span><span class='op'>)</span>
+        <span class='va'>b</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>phat</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu1</span>, sd <span class='op'>=</span> <span class='va'>s1</span><span class='op'>)</span><span class='op'>+</span><span class='va'>phat</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu2</span>, sd <span class='op'>=</span> <span class='va'>s2</span><span class='op'>)</span>
+        <span class='va'>res</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>a</span><span class='op'>/</span><span class='op'>(</span><span class='va'>a</span><span class='op'>+</span><span class='va'>b</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>res</span>
+</code></pre>
+</div>
+<pre><code> [1] 2.196263e-07 1.663506e-06 2.186560e-06 1.146965e-05 9.945000e-05
+ [6] 1.387198e-04 3.356555e-03 3.524375e-03 5.207622e-03 6.329995e-03
+[11] 1.203763e-01 4.772492e-01 4.980510e-01 4.997759e-01 4.999067e-01
+[16] 4.999841e-01 4.999974e-01 4.999997e-01 4.999999e-01 5.000000e-01</code></pre>
+</div>
+<ol start="3" type="1">
+<li>M-step</li>
+</ol>
+<p><span class="math inline">\(\hat{\mu_1}=\frac{\sum_{i=1}^n (1-\hat{\gamma_i})y_i}{\sum_{i=1}^n(1-\hat{\gamma_i})}\)</span>,<br />
+<span class="math inline">\(\hat{\mu_2}=\frac{\sum_{i=1}^n \hat{\gamma_i}y_i}{\sum_{i=1}^n \hat{\gamma_i}}\)</span>, <span class="math inline">\(\hat{\sigma_1}=\frac{\sum_{i=1}^n (1-\hat{\gamma_i})(y_i-\hat{\mu_1}^2)}{\sum_{i=1}^n(1-\hat{\gamma_i})}\)</span>,<br />
+<span class="math inline">\(\hat{\sigma_2}=\frac{\sum_{i=1}^n \hat{\gamma_i}(y_i-\hat{\mu_2}^2)}{\sum_{i=1}^n\hat{\gamma_i}}\)</span>,</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mu1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span><span class='op'>*</span><span class='va'>y</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span>
+<span class='va'>mu2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>*</span><span class='va'>y</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+<span class='va'>s1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span><span class='op'>*</span><span class='op'>(</span><span class='va'>y</span><span class='op'>-</span><span class='va'>mu1</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span><span class='op'>)</span>
+        <span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>*</span><span class='op'>(</span><span class='va'>y</span><span class='op'>-</span><span class='va'>mu2</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span><span class='op'>)</span>
+        <span class='va'>phat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>E-M step 반복</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.39</span>, <span class='fl'>0.06</span>, <span class='fl'>0.12</span>, <span class='fl'>0.48</span>, <span class='fl'>0.94</span>, <span class='fl'>1.01</span>, <span class='fl'>1.67</span>, <span class='fl'>1.68</span>, <span class='fl'>1.76</span>, <span class='fl'>1.80</span>, <span class='fl'>2.44</span>, <span class='fl'>3.25</span>, <span class='fl'>3.72</span>, <span class='fl'>4.12</span>, <span class='fl'>4.28</span>, <span class='fl'>4.60</span>, <span class='fl'>4.92</span>, <span class='fl'>5.28</span>, <span class='fl'>5.53</span>, <span class='fl'>6.22</span> <span class='op'>)</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
+<span class='va'>N</span> <span class='op'>&lt;-</span> <span class='fl'>100</span>
+<span class='va'>y1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.39</span>, <span class='fl'>0.06</span>, <span class='fl'>0.12</span>, <span class='fl'>0.48</span>, <span class='fl'>0.94</span>, <span class='fl'>1.01</span>, <span class='fl'>1.67</span>, <span class='fl'>1.68</span>, <span class='fl'>1.76</span>, <span class='fl'>1.80</span>, <span class='fl'>2.44</span><span class='op'>)</span>
+<span class='va'>y2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3.25</span>, <span class='fl'>3.72</span>, <span class='fl'>4.12</span>, <span class='fl'>4.28</span>, <span class='fl'>4.60</span>, <span class='fl'>4.92</span>, <span class='fl'>5.28</span>, <span class='fl'>5.53</span>, <span class='fl'>6.22</span><span class='op'>)</span>
+<span class='va'>mu1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y1</span><span class='op'>)</span>
+<span class='va'>mu2</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y2</span><span class='op'>)</span>
+<span class='va'>s1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>y1</span><span class='op'>)</span>
+<span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>y2</span><span class='op'>)</span>
+<span class='va'>phat</span> <span class='op'>&lt;-</span> <span class='fl'>0.5</span>
+
+<span class='va'>result</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>N</span><span class='op'>)</span> <span class='op'>{</span>
+        
+        <span class='co'># E-step </span>
+        <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='va'>phat</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span>, mean <span class='op'>=</span> <span class='va'>mu2</span>, sd <span class='op'>=</span> <span class='va'>s2</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>phat</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span>, mean <span class='op'>=</span> <span class='va'>mu1</span>, sd <span class='op'>=</span> <span class='va'>s1</span><span class='op'>)</span><span class='op'>+</span><span class='va'>phat</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span>, mean <span class='op'>=</span> <span class='va'>mu2</span>, sd <span class='op'>=</span> <span class='va'>s2</span><span class='op'>)</span><span class='op'>)</span>
+        
+        <span class='co'># M-step </span>
+        <span class='va'>mu1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span><span class='op'>*</span><span class='va'>y</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span>
+        <span class='va'>mu2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>*</span><span class='va'>y</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+        <span class='va'>s1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span><span class='op'>*</span><span class='op'>(</span><span class='va'>y</span><span class='op'>-</span><span class='va'>mu1</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>res</span><span class='op'>)</span><span class='op'>)</span>
+        <span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>*</span><span class='op'>(</span><span class='va'>y</span><span class='op'>-</span><span class='va'>mu2</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span><span class='op'>)</span>
+        <span class='va'>phat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+        
+        <span class='co'># result</span>
+        <span class='va'>result</span><span class='op'>[</span><span class='va'>j</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>phat</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>mu1</span>, <span class='va'>s1</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>phat</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>mu2</span>, <span class='va'>s2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+        
+        <span class='kw'>if</span><span class='op'>(</span><span class='va'>j</span><span class='op'>&gt;</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>{</span>
+                <span class='kw'>if</span><span class='op'>(</span><span class='va'>result</span><span class='op'>[</span><span class='va'>j</span><span class='op'>]</span><span class='op'>-</span><span class='va'>result</span><span class='op'>[</span><span class='va'>j</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>&lt;</span><span class='fl'>1e-8</span><span class='op'>)</span><span class='op'>{</span>
+                        <span class='va'>result</span> <span class='op'>&lt;-</span> <span class='va'>result</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>j</span><span class='op'>]</span>
+                        <span class='kw'>break</span>
+                        <span class='op'>}</span>
+                
+        <span class='op'>}</span>
+        <span class='va'>j</span> <span class='op'>&lt;-</span> <span class='va'>j</span><span class='op'>+</span><span class='fl'>1</span>
+
+<span class='op'>}</span>
+<span class='va'>mu1</span>
+</code></pre>
+</div>
+<pre><code>[1] 1.083143</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mu2</span>
+</code></pre>
+</div>
+<pre><code>[1] 4.655892</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>s1</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9007445</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>s2</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9048893</code></pre>
+</div>
+<h2 id="two-component-gaussian-mixture-another-example">Two component Gaussian Mixture another example</h2>
+<p>일반적으로 흐린 날에는 맑은 날보다 온도가 낮다. 10일 동안의 온도 데이터가 주어졌을 때 맑은 날과 흐린 날의 평균 온도는 얼마인가? (10일 동안의 온도는 주어졌지만 흐린 날의 온도인지 맑은 날의 온도인지 모른다)</p>
+<p>k = 2, 각 k별로 정규분포 가정(<span class="math inline">\(\sigma_0 = 10\)</span>), 즉 bimodal distribution 형태가 됨.</p>
+<p>주어진 데이터와 parameter는 다음과 같다.</p>
+<p><span class="math inline">\(temerature = (70, 62, 89, 54, 97, 75, 82, 56, 32, 78)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(k = 2\)</span></p></li>
+<li><p><span class="math inline">\(\mu_1 = 80\)</span> initial value</p></li>
+<li><p><span class="math inline">\(\mu_2 = 55\)</span> initial value</p></li>
+<li><p><span class="math inline">\(Z_{ij} = 1\)</span>, x가 첫번째 정규분포에서 발생했을 경우</p></li>
+<li><p><span class="math inline">\(Z_{ij} = 0\)</span>, x가 두번째 정규분포에서 발생했을 경우</p></li>
+<li><p><span class="math inline">\(X_i\)</span> : observed</p></li>
+<li><p><span class="math inline">\(Z_{ij}\)</span> : unobservable</p></li>
+</ul>
+<ol type="1">
+<li>초기값을 설정한다.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>temp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>70</span>, <span class='fl'>62</span>, <span class='fl'>89</span>, <span class='fl'>54</span>, <span class='fl'>97</span>, <span class='fl'>75</span>, <span class='fl'>82</span>, <span class='fl'>56</span>, <span class='fl'>32</span>, <span class='fl'>78</span><span class='op'>)</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>temp</span><span class='op'>)</span>
+<span class='va'>mu1</span> <span class='op'>&lt;-</span> <span class='fl'>80</span> <span class='co'># initial value</span>
+<span class='va'>mu2</span> <span class='op'>&lt;-</span> <span class='fl'>55</span> <span class='co'># initial value </span>
+</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>E- Step</li>
+</ol>
+<p><span class="math display">\[E[Z_{ij}] = \frac{P(X=x_i|\mu = \mu_j)}{\sum_{k=1}^2 P(X=x_i|\mu = \mu_k)} = \frac{\exp(-\frac{1}{2\sigma^2}(x_i-\mu_j)^2)}{\sum_{k=1}^2\exp(-\frac{1}{2\sigma^2}(x_i-\mu_k)^2)}\]</span></p>
+<p><span class="math display">\[E[Z_{11}] = \frac{exp(-\frac{1}{2\times 100} (70-80)^2)}{exp(-\frac{1}{2\times 100} (70-80)^2)+exp(-\frac{1}{2\times 100} (70-55)^2)} = 0.65\]</span></p>
+<p><span class="math display">\[E[Z_{12}] = \frac{exp(-\frac{1}{2\times 100} (70-55)^2)}{exp(-\frac{1}{2\times 100} (70-80)^2)+exp(-\frac{1}{2\times 100} (70-55)^2)} = 0.34\]</span></p>
+<p><span class="math inline">\(E[Z_{i1}] = (0.65, 0.20, 0.99, 0.03, 0.99, 0.86, 0.97, 0.053, 0.00, 0.93)\)</span> <span class="math inline">\(E[Z_{i2}] = (0.34, 0.79, 0.00, 0.96, 0.00, 0.13, 0.02, 0.94, 0.99, 0.067)\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>EZ1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>EZ2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>L1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu1</span>, sd <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+        <span class='va'>L2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu2</span>, sd <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+        <span class='va'>EZ1</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>L1</span><span class='op'>/</span><span class='op'>(</span><span class='va'>L1</span><span class='op'>+</span><span class='va'>L2</span><span class='op'>)</span>
+        <span class='va'>EZ2</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>L2</span><span class='op'>/</span><span class='op'>(</span><span class='va'>L1</span><span class='op'>+</span><span class='va'>L2</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>EZ1</span>
+</code></pre>
+</div>
+<pre><code> [1] 0.6513548647 0.2018132223 0.9953904278 0.0330859784 0.9993736658
+ [6] 0.8670357598 0.9740426428 0.0534033298 0.0001398221 0.9324533089</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>EZ2</span>
+</code></pre>
+</div>
+<pre><code> [1] 0.3486451353 0.7981867777 0.0046095722 0.9669140216 0.0006263342
+ [6] 0.1329642402 0.0259573572 0.9465966702 0.9998601779 0.0675466911</code></pre>
+</div>
+<ol start="3" type="1">
+<li>M - Step</li>
+</ol>
+<p><span class="math display">\[\mu_j \longleftarrow \frac{\sum_{i=1}^m E[Z_{ij}]X_i}{\sum_{i=1}^m E[Z_{ij}]}\]</span></p>
+<p><span class="math display">\[\mu_1 \longleftarrow  \frac{0.65\times 70+0.20\times62+0.99\times89+....+0.93\times78}{0.65+0.20+0.99+....+0.93}=81.75\]</span> <span class="math display">\[\mu_2 \longleftarrow  \frac{0.34\times 70+0.79\times62+....+0.067\times78}{0.34+0.79+0.00+....+0.067}=53.35\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numerator1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>numerator2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>numerator1</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>*</span><span class='va'>EZ1</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>
+        <span class='va'>numerator2</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>*</span><span class='va'>EZ2</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>
+<span class='op'>}</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>numerator1</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>EZ1</span><span class='op'>)</span> <span class='co'># update value </span>
+</code></pre>
+</div>
+<pre><code>[1] 81.64697</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>numerator2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>EZ2</span><span class='op'>)</span> <span class='co'># update value </span>
+</code></pre>
+</div>
+<pre><code>[1] 53.34494</code></pre>
+</div>
+<ol start="4" type="1">
+<li>수렴할 때까지 E - step, M - step 반복</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>temp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>70</span>, <span class='fl'>62</span>, <span class='fl'>89</span>, <span class='fl'>54</span>, <span class='fl'>97</span>, <span class='fl'>75</span>, <span class='fl'>82</span>, <span class='fl'>56</span>, <span class='fl'>32</span>, <span class='fl'>78</span><span class='op'>)</span>
+<span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>80</span>, <span class='fl'>55</span><span class='op'>)</span> <span class='co'># initial value</span>
+<span class='va'>mu.old</span> <span class='op'>&lt;-</span> <span class='va'>mu</span><span class='op'>+</span><span class='fl'>1</span>
+<span class='va'>tol</span> <span class='op'>&lt;-</span> <span class='va'>.Machine</span><span class='op'>$</span><span class='va'>double.eps</span><span class='op'>^</span><span class='fl'>0.5</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>temp</span><span class='op'>)</span>
+<span class='va'>j</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
+
+<span class='va'>EZ1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>EZ2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>numerator1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>  
+<span class='va'>numerator2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='op'>)</span>
+
+
+<span class='kw'>while</span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='va'>L1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, sd <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+    <span class='va'>L2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>dnorm</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, mean <span class='op'>=</span> <span class='va'>mu</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, sd <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+    <span class='va'>EZ1</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>L1</span><span class='op'>/</span><span class='op'>(</span><span class='va'>L1</span><span class='op'>+</span><span class='va'>L2</span><span class='op'>)</span>
+    <span class='va'>EZ2</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>L2</span><span class='op'>/</span><span class='op'>(</span><span class='va'>L1</span><span class='op'>+</span><span class='va'>L2</span><span class='op'>)</span>
+        
+    <span class='va'>numerator1</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>*</span><span class='va'>EZ1</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>
+    <span class='va'>numerator2</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>temp</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>*</span><span class='va'>EZ2</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>
+    <span class='op'>}</span>
+  <span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>numerator1</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>EZ1</span><span class='op'>)</span> <span class='co'># update value </span>
+  <span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>numerator2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>EZ2</span><span class='op'>)</span> <span class='co'># update value </span>
+  <span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span><span class='op'>)</span>
+  <span class='va'>j</span> <span class='op'>&lt;-</span> <span class='va'>j</span><span class='op'>+</span><span class='fl'>1</span>
+  <span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='va'>mu</span><span class='op'>-</span><span class='va'>mu.old</span><span class='op'>)</span><span class='op'>/</span><span class='va'>mu.old</span><span class='op'>)</span><span class='op'>&lt;</span><span class='va'>tol</span> <span class='op'>|</span> <span class='va'>j</span> <span class='op'>&gt;</span> <span class='fl'>1000</span><span class='op'>)</span><span class='op'>{</span>
+          <span class='kw'>break</span>
+  <span class='op'>}</span>
+<span class='op'>}</span>
+<span class='va'>mu</span>
+</code></pre>
+</div>
+<pre><code>[1] 81.73553 52.83098</code></pre>
+</div>
+<h2 id="multinomial-example">Multinomial example</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y1</span> <span class='op'>&lt;-</span> <span class='fl'>38</span>
+<span class='va'>y2</span> <span class='op'>&lt;-</span> <span class='fl'>34</span>
+<span class='va'>y3</span> <span class='op'>&lt;-</span> <span class='fl'>125</span>
+
+
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0.01</span><span class='op'>)</span>
+
+<span class='co'># MLE </span>
+
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='op'>-</span><span class='va'>y1</span><span class='op'>-</span><span class='va'>y2</span><span class='op'>-</span><span class='va'>y3</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>+</span> <span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>*</span><span class='va'>y1</span><span class='op'>-</span><span class='va'>y2</span><span class='op'>+</span><span class='va'>y3</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>+</span><span class='fl'>2</span><span class='op'>*</span><span class='va'>y2</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, type <span class='op'>=</span> <span class='st'>'l'</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>h<span class='op'>=</span><span class='fl'>0</span>, 
+       v <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/uniroot.html'>uniroot</a></span><span class='op'>(</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>(</span><span class='op'>-</span><span class='va'>y1</span><span class='op'>-</span><span class='va'>y2</span><span class='op'>-</span><span class='va'>y3</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>+</span> <span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>*</span><span class='va'>y1</span><span class='op'>-</span><span class='va'>y2</span><span class='op'>+</span><span class='va'>y3</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>+</span>
+                           <span class='fl'>2</span><span class='op'>*</span><span class='va'>y2</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="em-algorithm_files/figure-html5/unnamed-chunk-10-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># log likelihood </span>
+<span class='va'>l</span> <span class='op'>&lt;-</span> <span class='va'>y1</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>-</span><span class='va'>x</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>+</span><span class='va'>y2</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>/</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>+</span><span class='va'>y3</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>+</span><span class='va'>x</span><span class='op'>/</span><span class='fl'>4</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>l</span>, type <span class='op'>=</span> <span class='st'>'l'</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/uniroot.html'>uniroot</a></span><span class='op'>(</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>(</span><span class='op'>-</span><span class='va'>y1</span><span class='op'>-</span><span class='va'>y2</span><span class='op'>-</span><span class='va'>y3</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>+</span> <span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>*</span><span class='va'>y1</span><span class='op'>-</span><span class='va'>y2</span><span class='op'>+</span><span class='va'>y3</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>+</span>
+                           <span class='fl'>2</span><span class='op'>*</span><span class='va'>y2</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="em-algorithm_files/figure-html5/unnamed-chunk-10-2.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># use EM algorithm </span>
+<span class='va'>t1</span> <span class='op'>&lt;-</span> <span class='fl'>0.2</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>y3.tmp</span> <span class='op'>&lt;-</span> <span class='fl'>125</span><span class='op'>*</span><span class='op'>(</span><span class='va'>t1</span><span class='op'>/</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>+</span><span class='va'>t1</span><span class='op'>/</span><span class='fl'>4</span><span class='op'>)</span>
+        <span class='va'>t2</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='fl'>34</span><span class='op'>+</span><span class='va'>y3.tmp</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fl'>72</span><span class='op'>+</span><span class='va'>y3.tmp</span><span class='op'>)</span>
+        <span class='va'>t1</span> <span class='op'>&lt;-</span> <span class='va'>t2</span>
+<span class='op'>}</span>
+<span class='va'>t2</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.6268215</code></pre>
+</div>
+<p>참고 1 : <a href="https://www.youtube.com/watch?v=RqA_kaaX6y4" class="uri">https://www.youtube.com/watch?v=RqA_kaaX6y4</a></p>
+<p>참고 2 : statistical computing with R second edition</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2454,6 +2771,15 @@ gtag('config', 'G-LESWHZMHS2');
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
@@ -2461,12 +2787,12 @@ gtag('config', 'G-LESWHZMHS2');
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">dondon (2021, June 12). DonDon: Building a {distill} website. Retrieved from https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/</pre>
+  <pre class="citation-appendix short">dondon (2021, June 12). DonDon: EM algorithm. Retrieved from https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dondon2021building,
+  <pre class="citation-appendix long">@misc{dondon2021em,
   author = {dondon, },
-  title = {DonDon: Building a {distill} website},
-  url = {https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/},
+  title = {DonDon: EM algorithm},
+  url = {https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/},
   year = {2021}
 }</pre>
 </div>
