@@ -17,5 +17,16 @@
       <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png" medium="image" type="image/png" width="1863" height="834"/>
     </item>
+    <item>
+      <title>Nonparametric Regression</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression</link>
+      <description>Nonparametric Regression</description>
+      <category>statistics</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression</guid>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression/nonparametric-regression_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
   </channel>
 </rss>
