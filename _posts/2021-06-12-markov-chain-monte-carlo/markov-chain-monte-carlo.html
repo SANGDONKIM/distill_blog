@@ -88,30 +88,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Markov Chain Monte Carlo</title>
 
-  <meta property="description" itemprop="description" content="A short description of the post."/>
+  <meta property="description" itemprop="description" content="Introduction to MCMC"/>
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-01-05"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-01-05"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-01-06"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-01-06"/>
   <meta name="article:author" content="dondon"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Markov Chain Monte Carlo"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:description" content="Introduction to MCMC"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Markov Chain Monte Carlo"/>
-  <meta property="twitter:description" content="A short description of the post."/>
+  <meta property="twitter:description" content="Introduction to MCMC"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Markov Chain Monte Carlo"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["dondon"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-01-05"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","highlight","highlight_downlit","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["default"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Statistics","R"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Markov Chain Monte Carlo"]},{"type":"character","attributes":{},"value":["Introduction to MCMC\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["dondon"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-01-06"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","highlight","highlight_downlit","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["default"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Statistics","R"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1458,7 +1458,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Markov Chain Monte Carlo","description":"A short description of the post.","authors":[{"author":"dondon","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-05T00:00:00.000+09:00","citationText":"dondon, 2021"}
+{"title":"Markov Chain Monte Carlo","description":"Introduction to MCMC","authors":[{"author":"dondon","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-06T00:00:00.000+09:00","citationText":"dondon, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1475,13 +1475,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt=tag">R</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>A short description of the post.</p></p>
+<p><p>Introduction to MCMC</p></p>
 </div>
 
 <div class="d-byline">
   dondon true 
   
-<br/>2021-01-05
+<br/>2021-01-06
 </div>
 
 <div class="d-article">
@@ -1579,7 +1579,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span class='op'>}</span>
 <span class='va'>k</span> <span class='co'># reject된 갯수 </span>NA</code></pre>
 </div>
-<pre><code>[1] 4117</code></pre>
+<pre><code>[1] 4060</code></pre>
 </div>
 <p>실제 Rayleigh 분포와 같은지를 비교하기 위해 QQplot을 그리면 다음과 같다.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1713,20 +1713,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <span class='va'>b</span> <span class='op'>&lt;-</span> <span class='va'>burn</span> <span class='op'>+</span> <span class='fl'>1</span> <span class='co'># 임의로 부여한 initial value의 효과를 없앰. </span>NA<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>X</span><span class='op'>[</span><span class='va'>b</span><span class='op'>:</span><span class='va'>N</span>, <span class='op'>]</span> <span class='co'># 1000개 버림</span>NA<span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='co'># 0, 2에 거의 근사 </span>NA</code></pre>
 </div>
-<pre><code>[1] 0.05791435 1.97454422</code></pre>
+<pre><code>[1] 4.500476e-05 2.000317e+00</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cov</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>           [,1]       [,2]
-[1,]  1.0293086 -0.3948688
-[2,] -0.3948688  0.2551902</code></pre>
+[1,]  0.9956419 -0.3796136
+[2,] -0.3796136  0.2476642</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='co'># rho = -0.75에 거의 근사 </span>NA</code></pre>
 </div>
 <pre><code>           [,1]       [,2]
-[1,]  1.0000000 -0.7704562
-[2,] -0.7704562  1.0000000</code></pre>
+[1,]  1.0000000 -0.7644667
+[2,] -0.7644667  1.0000000</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, main <span class='op'>=</span> <span class='st'>''</span>, cex <span class='op'>=</span> <span class='fl'>0.5</span>, xlab <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/bquote.html'>bquote</a></span><span class='op'>(</span><span class='va'>X</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>, ylab <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/bquote.html'>bquote</a></span><span class='op'>(</span><span class='va'>X</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>, ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>

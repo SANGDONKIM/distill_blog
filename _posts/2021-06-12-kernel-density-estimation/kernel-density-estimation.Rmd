@@ -1,7 +1,7 @@
 ---
 title: "kernel density estimation"
 description: |
-  커널 밀도 추정에 대한 소개 및 Example 
+  Introduction to KDE 
 author:
   - name: dondon
     url: {}

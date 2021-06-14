@@ -151,6 +151,17 @@
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-gradient-boosting-regression/gradient-boosting-regression_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
+      <title>kernel density estimation</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation</link>
+      <description>Introduction to KDE</description>
+      <category>Statistics</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation/kernel-density-estimation_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>Map visualization using sf</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</link>
@@ -160,6 +171,17 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</guid>
       <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/map-visualization-using-sf_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Markov Chain Monte Carlo</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</link>
+      <description>Introduction to MCMC</description>
+      <category>Statistics</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</guid>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo/markov-chain-monte-carlo_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Split the map into a grid using sf</title>
@@ -182,28 +204,6 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</guid>
       <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/tmap-in-r_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>kernel density estimation</title>
-      <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation</link>
-      <description>A short description of the post.</description>
-      <category>Statistics</category>
-      <category>R</category>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation</guid>
-      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation/kernel-density-estimation_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Markov Chain Monte Carlo</title>
-      <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</link>
-      <description>A short description of the post.</description>
-      <category>Statistics</category>
-      <category>R</category>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</guid>
-      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo/markov-chain-monte-carlo_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>
