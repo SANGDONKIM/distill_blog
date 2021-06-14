@@ -9,6 +9,10 @@
     <lastmod>2021-06-12T18:49:57+09:00</lastmod>
   </url>
   <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-building-a-distill-website/</loc>
+    <lastmod>2021-06-14T13:17:43+09:00</lastmod>
+  </url>
+  <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/</loc>
     <lastmod>2021-06-12T18:49:56+09:00</lastmod>
   </url>
@@ -22,15 +26,27 @@
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-arima-with-r/</loc>
-    <lastmod>2021-06-12T22:10:57+09:00</lastmod>
+    <lastmod>2021-06-12T22:10:58+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-multi-classification-with-tidymodels/</loc>
-    <lastmod>2021-06-12T22:14:25+09:00</lastmod>
+    <lastmod>2021-06-12T22:14:26+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-stacking-with-tidymodels-and-caret/</loc>
+    <lastmod>2021-06-14T13:21:16+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial/</loc>
     <lastmod>2021-06-12T21:51:13+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-modeltime-with-tidymodels/</loc>
+    <lastmod>2021-06-13T00:17:46+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels/</loc>
+    <lastmod>2021-06-14T13:34:05+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r/</loc>

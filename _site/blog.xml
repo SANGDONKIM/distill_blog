@@ -10,6 +10,14 @@
     <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Building a {distill} website</title>
+      <dc:creator>Unknown</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-a-distill-website</link>
+      <description>A short description of the post.</description>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-building-a-distill-website</guid>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Building a {distill} website</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</link>
       <description>How I built this site using {distill}</description>
@@ -60,6 +68,18 @@
       <category>Multi classification</category>
       <category>tidymodels</category>
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-multi-classification-with-tidymodels</guid>
+      <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>stacking with tidymodels and caret</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-stacking-with-tidymodels-and-caret</link>
+      <description>tidymodels, caret을 이용한 stacking</description>
+      <category>Machine learning</category>
+      <category>tidymodels</category>
+      <category>caret</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-stacking-with-tidymodels-and-caret</guid>
       <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
@@ -72,6 +92,31 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial</guid>
       <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial/tidymodels-tutorial_files/figure-html5/unnamed-chunk-15-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Modeltime with tidymodels</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-modeltime-with-tidymodels</link>
+      <description>tidymodels를 이용한 시계열 모델링</description>
+      <category>Machine learning</category>
+      <category>time series</category>
+      <category>tidymodels</category>
+      <category>Dacon</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-modeltime-with-tidymodels</guid>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>XGBOOST with tidymodels</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels</link>
+      <description>tidymodels를 이용한 xgboost 모델 적합</description>
+      <category>Machine learning</category>
+      <category>tidymodels</category>
+      <category>kaggle</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels</guid>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Generalized Linear Model using R</title>
