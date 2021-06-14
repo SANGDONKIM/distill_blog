@@ -9,23 +9,6 @@
     <generator>Distill</generator>
     <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Building a {distill} website</title>
-      <dc:creator>Unknown</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-a-distill-website</link>
-      <description>A short description of the post.</description>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-building-a-distill-website</guid>
-      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Building a {distill} website</title>
-      <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</link>
-      <description>How I built this site using {distill}</description>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</guid>
-      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png" medium="image" type="image/png" width="1863" height="834"/>
-    </item>
-    <item>
       <title>EM algorithm</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm</link>
@@ -46,6 +29,15 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression</guid>
       <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression/nonparametric-regression_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Building a {distill} website</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</link>
+      <description>How I built this site using {distill}</description>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</guid>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png" medium="image" type="image/png" width="1863" height="834"/>
     </item>
     <item>
       <title>Arima with R</title>
@@ -117,6 +109,7 @@
       <category>R</category>
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels</guid>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels/image1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Generalized Linear Model using R</title>
@@ -128,6 +121,29 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r</guid>
       <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r/generalized-linear-model-using-r_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>tmap in R</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</link>
+      <description>tmap 패키지에 대한 간략한 소개 및 leaflet 연동 방법</description>
+      <category>Visualization</category>
+      <category>tmap</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</guid>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/image1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Map visualization using sf</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</link>
+      <description>sf 패키지에 대한 간략한 소개 및 따릉이 역과 한강 사이의 최단거리 구하기</description>
+      <category>Visualization</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</guid>
+      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/map-visualization-using-sf_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>ADMM</title>
@@ -162,17 +178,6 @@
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation/kernel-density-estimation_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
-      <title>Map visualization using sf</title>
-      <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</link>
-      <description>sf 패키지에 대한 간략한 소개</description>
-      <category>Visualization</category>
-      <category>R</category>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf</guid>
-      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/map-visualization-using-sf_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
       <title>Markov Chain Monte Carlo</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo</link>
@@ -193,17 +198,6 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf</guid>
       <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf/split-the-map-into-a-grid-using-sf_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>tmap in R</title>
-      <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</link>
-      <description>tmap 패키지에 대한 간략한 소개 및 leaflet 연동 방법</description>
-      <category>Visualization</category>
-      <category>R</category>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r</guid>
-      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/tmap-in-r_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

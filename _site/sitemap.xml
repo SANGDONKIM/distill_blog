@@ -6,15 +6,11 @@
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/</loc>
-    <lastmod>2021-06-12T18:49:57+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-building-a-distill-website/</loc>
-    <lastmod>2021-06-14T13:17:43+09:00</lastmod>
+    <lastmod>2021-06-14T21:38:47+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/</loc>
-    <lastmod>2021-06-12T18:49:56+09:00</lastmod>
+    <lastmod>2021-06-14T18:52:19+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/</loc>
@@ -42,15 +38,23 @@
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-modeltime-with-tidymodels/</loc>
-    <lastmod>2021-06-13T00:17:46+09:00</lastmod>
+    <lastmod>2021-06-14T17:03:12+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels/</loc>
-    <lastmod>2021-06-14T13:34:05+09:00</lastmod>
+    <lastmod>2021-06-14T15:09:25+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r/</loc>
     <lastmod>2021-06-12T21:47:13+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/</loc>
+    <lastmod>2021-06-14T14:51:20+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/</loc>
+    <lastmod>2021-06-14T14:55:05+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-admm/</loc>
@@ -65,19 +69,11 @@
     <lastmod>2021-06-14T13:47:34+09:00</lastmod>
   </url>
   <url>
-    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/</loc>
-    <lastmod>2021-06-12T21:14:23+09:00</lastmod>
-  </url>
-  <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo/</loc>
     <lastmod>2021-06-14T13:46:52+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf/</loc>
     <lastmod>2021-06-12T21:17:41+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/</loc>
-    <lastmod>2021-06-12T21:41:31+09:00</lastmod>
   </url>
 </urlset>

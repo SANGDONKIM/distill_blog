@@ -1,6 +1,6 @@
 ---
 title: "SANGDON KIM "
-image: "sangdon.jpg"
+image: "sangdon2.jpg"
 links:
   - label: GitHub
     url: "https://github.com/SANGDONKIM"

@@ -6,6 +6,7 @@ author:
   - name: dondon
     url: {}
 date: 2021-04-02
+preview: image1.png
 output:
   distill::distill_article:
     toc: true
@@ -344,14 +345,5 @@ pred_xgb <-
     mutate(modelo = "XGBoost")
 
 pred_xgb$.pred <- exp(pred_xgb$.pred)+1
-```
-
-## 변수 중요도 그림(feature importance plot)
-```{r}
-library(vip) # feature importance plot 그리기 
-final_xgb %>% 
-    fit(data = train2) %>%  # iter, training_rmse 
-    pull_workflow_fit() %>% #  http://www.rebeccabarter.com/blog/2020-03-25_machine_learning/
-    vip(geom = 'point')
 ```
 
