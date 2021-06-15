@@ -7,7 +7,24 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Multiple Test</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-15-multiple-test</link>
+      <description>A short description of the post.</description>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-15-multiple-test</guid>
+      <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Building a {distill} website</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</link>
+      <description>How I built this site using {distill}</description>
+      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</guid>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png" medium="image" type="image/png" width="1863" height="834"/>
+    </item>
     <item>
       <title>EM algorithm</title>
       <dc:creator>dondon</dc:creator>
@@ -29,15 +46,6 @@
       <guid>https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression</guid>
       <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression/nonparametric-regression_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Building a {distill} website</title>
-      <dc:creator>dondon</dc:creator>
-      <link>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</link>
-      <description>How I built this site using {distill}</description>
-      <guid>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill</guid>
-      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/image1.png" medium="image" type="image/png" width="1863" height="834"/>
     </item>
     <item>
       <title>Arima with R</title>
