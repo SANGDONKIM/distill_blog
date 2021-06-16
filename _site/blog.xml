@@ -7,14 +7,16 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Multiple Test</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-06-15-multiple-test</link>
-      <description>A short description of the post.</description>
+      <description>introduction to multiple test</description>
+      <category>Statistics</category>
+      <category>R</category>
       <guid>https://dondon-blog.netlify.app/posts/2021-06-15-multiple-test</guid>
-      <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://dondon-blog.netlify.app/posts/2021-06-15-multiple-test/multiple-test_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>

@@ -1,14 +1,22 @@
 ---
 title: "Multiple Test"
 description: |
-  A short description of the post.
+  introduction to multiple test  
 author:
   - name: dondon
     url: {}
-date: 06-15-2021
+date: 2021-06-16
 output:
   distill::distill_article:
+    toc: true
+    toc_depth: 3
     self_contained: false
+    highlight: default
+    highlight_downlit: true
+    code_folding: false
+categories:
+  - Statistics
+  - R
 ---
 
 다중검정은 multiple test, simultaneous tes, joint test 등으로 불리우는데, 보통 ANOVA 이후 집단 간의 세부적인 차이를 알아보기 위한 사후 검정으로 활용된다. 이번에 다중 검정 관련 논문을 읽을 일이 있어서 기본 개념에 대해 정리를 해보려고 한다.
@@ -220,12 +228,9 @@ $$
 
 ## False Discovery Rate(FDR)
 
+### Code
 
-
-
-### Code 
-
-#### No corrections 
+#### No corrections
 
 ```{r}
 set.seed(12345)
@@ -242,7 +247,7 @@ summary(test[901:1000])
 
 ```
 
-#### Bonferroni correction 
+#### Bonferroni correction
 
 ```{r}
 
@@ -252,6 +257,7 @@ summary(bonftest[901:1000])
 ```
 
 #### FDR
+
 ```{r}
 psort <- sort(p)
 fdrtest <- NULL
@@ -295,9 +301,12 @@ bh.func<-function(pv, q)
 bh.func(p, 0.05)
 ```
 
-
 ### 참고 자료
 
 <https://www.stat.berkeley.edu/~mgoldman/Section0402.pdf>
 
 <https://be-favorite.tistory.com/26>
+
+<https://www.tandfonline.com/doi/suppl/10.1080/01621459.2020.1859379?scroll=top>
+
+<https://ndownloader.figstatic.com/files/25717051>
