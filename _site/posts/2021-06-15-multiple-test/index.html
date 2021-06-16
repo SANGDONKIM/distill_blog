@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -1879,7 +1879,10 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      var refs = $(this).attr('data-cites').split(" ");
+      var refHtml = refs.map(function(ref) {
+        return "<p>" + $('#ref-' + ref).html() + "</p>";
+      }).join("\n");
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -2452,76 +2455,76 @@ Y_{ij} = \mu + \alpha_i + \epsilon_{ij}, \quad i = 1,2, 3 \quad j = 1, \cdots ,n
 <col style="width: 14%" />
 <col style="width: 20%" />
 <col style="width: 25%" />
-<col style="width: 30%" />
+<col style="width: 31%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Treat \ Rep</th>
-<th><span class="math display">\[
-1
-\]</span></th>
-<th><span class="math display">\[
-2
-\]</span></th>
-<th><span class="math display">\[
-\cdots
-\]</span></th>
-<th><span class="math display">\[
-n
-\]</span></th>
+<th><span class="math display">\[                     
+                1                       
+                \]</span></th>
+<th><span class="math display">\[                              
+                                         2                                
+                                         \]</span></th>
+<th><span class="math display">\[                                       
+                                                                           \cdots                                    
+                                                                           \]</span></th>
+<th><span class="math display">\[                                                
+                                                                                                                      n                                                  
+                                                                                                                      \]</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[
- 1
- \]</span></td>
-<td><span class="math display">\[
-                Y_{11}
-                \]</span></td>
-<td><span class="math display">\[
-                         Y_{12}
-                         \]</span></td>
-<td><span class="math display">\[
-                                  \cdots
-                                  \]</span></td>
-<td><span class="math display">\[
-                                           Y_{1n}
-                                           \]</span></td>
+<td><span class="math display">\[           
+  1            
+  \]</span></td>
+<td><span class="math display">\[                     
+                                Y_{11}  
+                                \]</span></td>
+<td><span class="math display">\[                              
+                                                                  Y_{12}  
+                                                                  \]</span></td>
+<td><span class="math display">\[                                       
+                                                                                                             \cdots  
+                                                                                                             \]</span></td>
+<td><span class="math display">\[                                                
+                                                                                                                                                                 Y_{1n}  
+                                                                                                                                                                 \]</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[
- 2
- \]</span></td>
-<td><span class="math display">\[
-                Y_{21}
-                \]</span></td>
-<td><span class="math display">\[
-                         Y_{22}
-                         \]</span></td>
-<td><span class="math display">\[
-                                  \cdots
-                                  \]</span></td>
-<td><span class="math display">\[
-                                           Y_{2n}
-                                           \]</span></td>
+<td><span class="math display">\[           
+  2            
+  \]</span></td>
+<td><span class="math display">\[                     
+                                Y_{21}  
+                                \]</span></td>
+<td><span class="math display">\[                              
+                                                                  Y_{22}  
+                                                                  \]</span></td>
+<td><span class="math display">\[                                       
+                                                                                                             \cdots  
+                                                                                                             \]</span></td>
+<td><span class="math display">\[                                                
+                                                                                                                                                                 Y_{2n}  
+                                                                                                                                                                 \]</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[
- 3
- \]</span></td>
-<td><span class="math display">\[
-                Y_{31}
-                \]</span></td>
-<td><span class="math display">\[
-                         Y_{32}
-                         \]</span></td>
-<td><span class="math display">\[
-                                  \cdots
-                                  \]</span></td>
-<td><span class="math display">\[
-                                           Y_{3n}
-                                           \]</span></td>
+<td><span class="math display">\[           
+  3            
+  \]</span></td>
+<td><span class="math display">\[                     
+                                Y_{31}  
+                                \]</span></td>
+<td><span class="math display">\[                              
+                                                                  Y_{32}  
+                                                                  \]</span></td>
+<td><span class="math display">\[                                       
+                                                                                                             \cdots  
+                                                                                                             \]</span></td>
+<td><span class="math display">\[                                                
+                                                                                                                                                                 Y_{3n}  
+                                                                                                                                                                 \]</span></td>
 </tr>
 </tbody>
 </table>
@@ -2575,17 +2578,23 @@ P(\bigcup_{i=1}^{m} E_{i}) &amp;= 1-P(\bigcap_{i=1}^{m} E_{i}^c) \\
 \end{equation*} 
 \]</span></p>
 <p>여기서 <span class="math inline">\(\bigcap\)</span>이 <span class="math inline">\(\prod\)</span>로 표현되는 이유는 가설 설정 시에 모든 가설(<span class="math inline">\(E_i\)</span>)은 서로 독립이기 때문이다.</p>
-<p>$$ \begin{equation*} \begin{aligned}</p>
-<p>&amp;\alpha = 0.05 \text{일 때}, \\ &amp;m = 2,\quad 1 - (1-\alpha)^m=0.0975 \\ &amp;m = 3,\quad 1 - (1-\alpha)^m=0.1426 \\ &amp;m = 100,\quad 1 - (1-\alpha)^m \backsimeq</p>
-<p>0.9941 \backsimeq 1</p>
-<p>\\ \end{aligned} \end{equation*} $$</p>
+<p><span class="math display">\[
+\begin{equation*} 
+\begin{aligned}
+&amp;\alpha = 0.05 \text{일 때}, \\ 
+&amp;m = 2,\quad 1 - (1-\alpha)^m=0.0975 \\
+&amp;m = 3,\quad 1 - (1-\alpha)^m=0.1426 \\ 
+&amp;m = 100,\quad 1 - (1-\alpha)^m \backsimeq 0.9941 \backsimeq 1 \\
+\end{aligned} 
+\end{equation*} 
+\]</span></p>
 <p><span class="math inline">\(m\)</span> 이 증가할 때, 즉 가설의 개수가 많아질 때 제 1종 오류가 발생할 upper bound는 거의 1에 가깝게 되며, 이는 거의 항상 error가 발생한다고 할 수 있다. 따라서 이러한 문제를 해결하기 위해서 제 1종 오류에 대한 일종의 보정을 수행해야 하는데 대표적인 방법이 Bonferroni correction이다. Bonferroni correction을 설명하기 이전에 FWER에 대해 집고 넘어간다.</p>
 <h2 id="family-wise-error-ratefwer">Family-wise error rate(FWER)</h2>
 <p><span class="math inline">\(m\)</span> 개의 가설검정(<span class="math inline">\(H^1, H^2,\cdots, H^m,\)</span>)을 수행한다고 가정했을 때 결과를 table로 정리해보면 다음과 같다.</p>
 <table>
 <caption>Result of m multiple hypothesis</caption>
 <colgroup>
-<col style="width: 11%" />
+<col style="width: 10%" />
 <col style="width: 20%" />
 <col style="width: 29%" />
 <col style="width: 39%" />
@@ -2593,57 +2602,57 @@ P(\bigcup_{i=1}^{m} E_{i}) &amp;= 1-P(\bigcap_{i=1}^{m} E_{i}^c) \\
 <thead>
 <tr class="header">
 <th>true state \ decision</th>
-<th><span class="math display">\[
-\text{accept }H_0
-\]</span></th>
-<th><span class="math display">\[
-\text{reject }H_0
-\]</span></th>
+<th><span class="math display">\[                                          
+                          \text{accept }H_0                            
+                          \]</span></th>
+<th><span class="math display">\[                                                              
+                                                                        \text{reject }H_0                                                
+                                                                        \]</span></th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[
- H_0: \text{true}
- \]</span></td>
-<td><span class="math display">\[
-                          U\text{(unknown)}
-                          \]</span></td>
-<td><span class="math display">\[
-                                              V\text{(unknown)}
-                                              \]</span></td>
-<td><span class="math display">\[
-                                                                  m_0\text{(unknown)}
-                                                                  \]</span></td>
+<td><span class="math display">\[                     
+  H_0: \text{true}       
+  \]</span></td>
+<td><span class="math display">\[                                          
+                                                    U\text{(unknown)}  
+                                                    \]</span></td>
+<td><span class="math display">\[                                                              
+                                                                                                                      V\text{(unknown)}  
+                                                                                                                      \]</span></td>
+<td><span class="math display">\[                                                                                    
+                                                                                                                                                                                                            m_0\text{(unknown)}  
+                                                                                                                                                                                                            \]</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[
- H_1: \text{true}
- \]</span></td>
-<td><span class="math display">\[
-                          T\text{(unknown)}
-                          \]</span></td>
-<td><span class="math display">\[
-                                              S\text{(unknown)}
-                                              \]</span></td>
-<td><span class="math display">\[
-                                                                  m_1\text{(unknown)}
-                                                                  \]</span></td>
+<td><span class="math display">\[                     
+  H_1: \text{true}       
+  \]</span></td>
+<td><span class="math display">\[                                          
+                                                    T\text{(unknown)}  
+                                                    \]</span></td>
+<td><span class="math display">\[                                                              
+                                                                                                                      S\text{(unknown)}  
+                                                                                                                      \]</span></td>
+<td><span class="math display">\[                                                                                    
+                                                                                                                                                                                                            m_1\text{(unknown)}  
+                                                                                                                                                                                                            \]</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[
- \text{Total}
- \]</span></td>
-<td><span class="math display">\[
-                          m-R\text{(known)}
-                          \]</span></td>
-<td><span class="math display">\[
-                                              R\text{(known)}
-                                              \]</span></td>
-<td><span class="math display">\[
-                                                                  m\text{(known)}
-                                                                  \]</span></td>
+<td><span class="math display">\[                     
+  \text{Total}           
+  \]</span></td>
+<td><span class="math display">\[                                          
+                                                    m-R\text{(known)}  
+                                                    \]</span></td>
+<td><span class="math display">\[                                                              
+                                                                                                                      R\text{(known)}    
+                                                                                                                      \]</span></td>
+<td><span class="math display">\[                                                                                    
+                                                                                                                                                                                                            m\text{(known)}      
+                                                                                                                                                                                                            \]</span></td>
 </tr>
 </tbody>
 </table>
@@ -2656,20 +2665,44 @@ P(V \ge 1)=P(\bigcup_{i=1}^{m} E_{i}) \le \sum_{i=1}^m P(E_i) \le \alpha
 <p>Bonferroni Correction은 위의 upper bound를 이용해서 개별 가설에 대한 <span class="math inline">\(\alpha^*\)</span> 값을 전체 <span class="math inline">\(\alpha\)</span> 를 개별 가설의 개수 <span class="math inline">\(m\)</span>으로 나눠준다.</p>
 <p><span class="math display">\[\alpha^* = \frac{\alpha}{m}\]</span></p>
 <p>Bonferroni Correction은 <span class="math inline">\(m\)</span> 이 작을 때, 비교적 잘 작동한다. <span class="math inline">\(m\)</span> 이 클 경우 Bonferroni Correction은 잘 작동하지 않는다. 수식을 보면 직관적으로 알 수 있는데 <span class="math inline">\(m\)</span>이 커질 경우 <span class="math inline">\(\alpha^*\)</span> 값이 매우 작아지기 때문에 개별 가설에 대해서 거의 기각하지 못하는 문제가 발생한다. 즉 Bonferroni Correction은 매우 보수적인 방법이라고 할 수 있다.</p>
-<h2 id="sidak-correction">Sidak Correction</h2>
+<h3 id="sidak-correction">Sidak Correction</h3>
 <p>시닥 보정 방법은 본페로니 보정 방법에서 조금 개선된 버전이다. 하지만 본페로니 보정의 문제점을 그대로 가지고 있다.</p>
-<p>$$ <span class="math display">\[\begin{equation*}
-\begin{aligned}
-P(\bigcup_{i=1}^{m} E_{i}) &amp;= 1-P(\bigcap_{i=1}^{m} E_{i}^c) \\
-&amp;= 1 -  \prod_{i=1}^{m} P(E_i^c) \\
-&amp;= 1 - \{1-P(E_i)\}^m \\
+<p><span class="math display">\[ 
+\begin{equation*} 
+\begin{aligned} 
+P(\bigcup_{i=1}^{m} E_{i}) &amp;= 1-P(\bigcap_{i=1}^{m} E_{i}^c) \\ 
+&amp;= 1 - \prod_{i=1}^{m} P(E_i^c) \\
+&amp;= 1 - \{1-P(E_i)\}^m \\ 
 &amp;= 1 - (1-\alpha^*)^m \le \alpha \\
-
 &amp;\therefore \alpha^* = 1-(1-\alpha)^\frac{1}{m}
-
 \end{aligned}
-\end{equation*}\]</span> $$</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+\end{equation*} 
+\]</span></p>
+<h2 id="false-discovery-ratefdr">False Discovery Rate(FDR)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>900</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span>, mean <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>pnorm</a></span><span class='op'>(</span><span class='va'>x</span>, lower.tail <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+
+<span class='va'>test</span> <span class='op'>&lt;-</span> <span class='va'>p</span> <span class='op'>&gt;</span> <span class='fl'>0.05</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>900</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>   Mode   FALSE    TRUE 
+logical      50     850 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>[</span><span class='fl'>901</span><span class='op'>:</span><span class='fl'>1000</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>   Mode   FALSE    TRUE 
+logical      91       9 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

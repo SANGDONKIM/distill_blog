@@ -63,7 +63,7 @@ $$
 
     -   즉, 세 집단 간의 평균 차이가 존재한다.
 
-여기서 귀무가설을 기각할 경우를 주목해보자. 귀무가설을 기각할 경우 내릴 수 있는 결론은 "세 집단 간의 평균 차이가 존재한다"이다. 다시 풀어서 써보면 "세 집단 간 중에 적어도 하나의 평균 차이가 존재한다"이며, 이는 어느 집단 간에 차이가 나는지 모른다는 의미와 같다. 즉, 다음과 같은 경우의 수가 도출될 수 있다.
+여기서 귀무가설을 기각할 경우를 주목해보자. 귀무가설을 기각할 경우 내릴 수 있는 결론은 "세 집단 간의 평균 차이가 존재한다"이다. 다시 풀어서 써보면 "세 집단 간 중에 적어도 하나는 평균 차이가 존재한다"이며, 이는 어느 집단 간에 차이가 나는지 모른다는 의미와 같다. 즉, 다음과 같은 경우의 수가 도출될 수 있다.
 
 $$H_1 : \\
 \alpha_1 = \alpha_2 > \alpha3 \\
@@ -109,15 +109,18 @@ P(\bigcup_{i=1}^{m} E_{i}) &= 1-P(\bigcap_{i=1}^{m} E_{i}^c) \\
 \end{equation*} 
 $$
 
-여기서 $\bigcap$이 $\prod$로 표현되는 이유는 가설 설정 시에 모든 가설($E_i$)은 서로 독립이기 때문이다.
+여기서 $\bigcap$이 $\prod$로 표현되는 이유는 가설 설정 시에 모든 가설($E_i$)은 서로 독립이기 때문이다. $m$ 에 값을 대입하면서 1종 오류의 upper bound에 대해 알아보자.
 
-\$\$ \\begin{equation\*} \\begin{aligned}
-
-&\\alpha = 0.05 \\text{일 때}, \\\\ &m = 2,\\quad 1 - (1-\\alpha)\^m=0.0975 \\\\ &m = 3,\\quad 1 - (1-\\alpha)\^m=0.1426 \\\\ &m = 100,\\quad 1 - (1-\\alpha)\^m \\backsimeq
-
-0.9941 \\backsimeq 1
-
-\\\\ \\end{aligned} \\end{equation\*} \$\$
+$$
+\begin{equation*} 
+\begin{aligned}
+&\alpha = 0.05 \text{일 때}, \\ 
+&m = 2,\quad 1 - (1-\alpha)^m=0.0975 \\
+&m = 3,\quad 1 - (1-\alpha)^m=0.1426 \\ 
+&m = 100,\quad 1 - (1-\alpha)^m \backsimeq 0.9941 \backsimeq 1 \\
+\end{aligned} 
+\end{equation*} 
+$$
 
 $m$ 이 증가할 때, 즉 가설의 개수가 많아질 때 제 1종 오류가 발생할 upper bound는 거의 1에 가깝게 되며, 이는 거의 항상 error가 발생한다고 할 수 있다. 따라서 이러한 문제를 해결하기 위해서 제 1종 오류에 대한 일종의 보정을 수행해야 하는데 대표적인 방법이 Bonferroni correction이다. Bonferroni correction을 설명하기 이전에 FWER에 대해 집고 넘어간다.
 
@@ -177,6 +180,124 @@ P(\bigcup_{i=1}^{m} E_{i}) &= 1-P(\bigcap_{i=1}^{m} E_{i}^c) \\
 \end{equation*} 
 $$
 
+### Example
+
+#### No correction
+
+$$ 
+\begin{equation*} 
+\begin{aligned} 
+P(\text{at least one significant result}) &= 1-P(\text{no significant result}) \\
+&= 1 - (1-0.05)^{20} \\
+&\simeq 0.64 
+\end{aligned}
+\end{equation*} 
+$$
+
+#### Bonferroni correction
+
+$$ 
+\begin{equation*} 
+\begin{aligned} 
+P(\text{at least one significant result}) &= 1-P(\text{no significant result}) \\
+&= 1 - (1-\frac{0.05}{20})^{20} \\
+&\simeq 0.0488 
+\end{aligned}
+\end{equation*} 
+$$
+
+#### Sidak correction
+
+$$ 
+\begin{equation*} 
+\begin{aligned} 
+P(\text{at least one significant result}) &= 1-P(\text{no significant result}) \\
+&= 1 - (1-\alpha^*)^{20} \\
+&\simeq 0.1854
+\end{aligned}
+\end{equation*} 
+$$
+
 ## False Discovery Rate(FDR)
 
 
+
+
+### Code 
+
+#### No corrections 
+
+```{r}
+set.seed(12345)
+x <- c(rnorm(900), rnorm(100, mean = 3))
+plot(density(x))
+
+p <- pnorm(x, lower.tail = F)
+length(p)
+
+test <- p > 0.05
+
+summary(test[1:900])
+summary(test[901:1000])
+
+```
+
+#### Bonferroni correction 
+
+```{r}
+
+bonftest <- p > 0.00005
+summary(bonftest[1:900])
+summary(bonftest[901:1000])
+```
+
+#### FDR
+```{r}
+psort <- sort(p)
+fdrtest <- NULL
+
+for (i in 1:1000){
+  fdrtest <- c(fdrtest, p[i] > match(p[i],psort) * .05/1000)
+
+}
+summary(fdrtest[1:900])
+summary(fdrtest[901:1000])
+
+
+bh.func<-function(pv, q)
+{ 
+  # the input 
+    # pv: the p-values
+    # q: the FDR level
+  # the output 
+    # nr: the number of hypothesis to be rejected
+    # th: the p-value threshold
+    # de: the decision rule
+
+  m=length(pv)
+  st.pv<-sort(pv)   
+  pvi<-st.pv/1:m
+  de<-rep(0, m)
+  if (sum(pvi<=q/m)==0)
+  {
+    k<-0
+    pk<-1
+  }
+  else
+  {
+    k<-max(which(pvi<=(q/m)))
+    pk<-st.pv[k]
+    de[which(pv<=pk)]<-1
+  }
+  y<-list(nr=k, th=pk, de=de)
+  return (y)
+}
+bh.func(p, 0.05)
+```
+
+
+### 참고 자료
+
+<https://www.stat.berkeley.edu/~mgoldman/Section0402.pdf>
+
+<https://be-favorite.tistory.com/26>

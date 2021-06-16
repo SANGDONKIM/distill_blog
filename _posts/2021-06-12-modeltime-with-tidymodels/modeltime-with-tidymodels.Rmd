@@ -16,7 +16,7 @@ output:
     code_folding: false
 categories:
   - Machine learning
-  - time series 
+  - time series
   - tidymodels
   - Dacon 
   - R
