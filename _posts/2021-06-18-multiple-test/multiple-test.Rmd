@@ -13,7 +13,7 @@ output:
     self_contained: false
     #highlight: default
     #highlight_downlit: true
-    code_folding: false
+    #code_folding: false
 ditor_options: 
   chunk_output_type: console
 categories:
@@ -30,7 +30,6 @@ knitr::opts_chunk$set(
   R.options = list(width = 80)
 )
 ```
-
 
 다중검정은 multiple test, simultaneous tes, joint test 등으로 불리우는데, 보통 ANOVA 이후 집단 간의 세부적인 차이를 알아보기 위한 사후 검정으로 활용된다. 이번에 다중 검정 관련 논문을 읽을 일이 있어서 기본 개념에 대해 정리를 해보려고 한다.
 
@@ -147,7 +146,7 @@ $m$ 이 증가할 때, 즉 가설의 개수가 많아질 때 제 1종 오류가 
 
 ## Family-wise error rate(FWER)
 
-$m$ 개의 가설검정($H^1, H^2,\cdots, H^m,$)을 수행한다고 가정했을 때 결과를 table로 정리해보면 다음과 같다.
+$m$ 개의 가설검정($H^1, H^2,\cdots, H^m$)을 수행한다고 가정했을 때 결과를 table로 정리해보면 다음과 같다.
 
 +------------------------+---------------------------------------------+-----------------------------------------------------------------+---------------------------------------------------------------------------------------+
 | true state \\ decision | $$                                          | $$                                                              |                                                                                       |
@@ -241,12 +240,28 @@ $$
 
 ## False Discovery Rate(FDR)
 
+FDR은 FWER의 단점인 가설의 수가 많아질 때 개별 가설에 대해서 거의 기각하지 못하는 단점을 보완한 방법이다.
+
+Benjamini and Hochberg(1995)
+
+$E[\frac{V}{R}] \le q, \quad q \text{ : correspond to level of significance}$
+
+식을 해석해보면 잘못기각되는 가설의 비율의 기댓값을 $q$ 수준으로 조절하는 것이라고 할 수 있다.
+
+**Benjamini and hochberg FDR procedure**
+
+To control FDR at level $\delta$
+
+1.  Order the unadjusted p-values: $p_1 \le p_2 \le \cdots \le p_m$
+2.  Then find the test with the highest rank, $j$, for which the p-value, $p_j$, is less than or equal to $\frac{j}{m}\cdot \delta$
+3.  Declare the tests of rank $1, 2, \cdots, j$ as significant $p(j) \le \delta \cdot \frac{j}{m}$
+
 ### Code
 
 #### No corrections
 
 ```{r}
-set.seed(12345)
+set.seed(311)
 x <- c(rnorm(900), rnorm(100, mean = 3))
 plot(density(x))
 
@@ -263,7 +278,6 @@ summary(test[901:1000])
 #### Bonferroni correction
 
 ```{r}
-
 bonftest <- p > 0.00005
 summary(bonftest[1:900])
 summary(bonftest[901:1000])
@@ -281,8 +295,19 @@ for (i in 1:1000){
 }
 summary(fdrtest[1:900])
 summary(fdrtest[901:1000])
+```
 
+#### FDR using R stat package
 
+```{r}
+p.adj <- stats::p.adjust(p, method = 'BH', n = length(p))
+fdrtest2 <- p.adj > 0.05
+summary(fdrtest2[1:900])
+summary(fdrtest2[901:1000])
+matplot(p, p.adj)
+```
+
+```{r}
 bh.func<-function(pv, q)
 { 
   # the input 
@@ -293,7 +318,7 @@ bh.func<-function(pv, q)
     # th: the p-value threshold
     # de: the decision rule
 
-  m=length(pv)
+  m=length(pv) # 1000 
   st.pv<-sort(pv)   
   pvi<-st.pv/1:m
   de<-rep(0, m)
@@ -311,9 +336,10 @@ bh.func<-function(pv, q)
   y<-list(nr=k, th=pk, de=de)
   return (y)
 }
-bh.func(p, 0.05)
-```
+summary(bh.func(p, 0.05)[1:900]$de)
+summary(bh.func(p, 0.90)[1:900]$de)
 
+```
 
 ### 참고 자료
 
@@ -325,3 +351,4 @@ bh.func(p, 0.05)
 
 <https://ndownloader.figstatic.com/files/25717051>
 
+<https://www.gs.washington.edu/academics/courses/akey/56008/lecture/lecture10.pdf>
