@@ -7,7 +7,17 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 18 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>tidymodels using bayes optimization</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-07-05-tidymodels-using-bayes-optimization</link>
+      <description>XGBOOST bayes opt 사용법</description>
+      <category>Machine learning</category>
+      <category>tidymodels</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-07-05-tidymodels-using-bayes-optimization</guid>
+      <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>multiple test</title>
       <dc:creator>dondon</dc:creator>
