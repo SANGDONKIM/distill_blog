@@ -142,7 +142,7 @@ $$
 \end{equation*} 
 $$
 
-$m$ 이 증가할 때, 즉 가설의 개수가 많아질 때 제 1종 오류가 발생할 upper bound는 거의 1에 가깝게 되며, 이는 거의 항상 error가 발생한다고 할 수 있다. 따라서 이러한 문제를 해결하기 위해서 제 1종 오류에 대한 일종의 보정을 수행해야 하는데 대표적인 방법이 Bonferroni correction이다. Bonferroni correction을 설명하기 이전에 FWER에 대해 집고 넘어간다.
+$m$ 이 증가할 때, 즉 가설의 개수가 많아질 때 제 1종 오류가 발생할 upper bound는 거의 1에 가깝게 되며, 이는 거의 항상 error가 발생한다고 할 수 있다. 따라서 이러한 문제를 해결하기 위해서 제 1종 오류에 대한 일종의 보정을 수행해야 하는데 대표적인 방법이 Bonferroni correction이다. Bonferroni correction을 설명하기 이전에 광의적인 개념인 FWER에 대해 집고 넘어간다.
 
 ## Family-wise error rate(FWER)
 
@@ -307,39 +307,6 @@ summary(fdrtest2[901:1000])
 matplot(p, p.adj)
 ```
 
-```{r}
-bh.func<-function(pv, q)
-{ 
-  # the input 
-    # pv: the p-values
-    # q: the FDR level
-  # the output 
-    # nr: the number of hypothesis to be rejected
-    # th: the p-value threshold
-    # de: the decision rule
-
-  m=length(pv) # 1000 
-  st.pv<-sort(pv)   
-  pvi<-st.pv/1:m
-  de<-rep(0, m)
-  if (sum(pvi<=q/m)==0)
-  {
-    k<-0
-    pk<-1
-  }
-  else
-  {
-    k<-max(which(pvi<=(q/m)))
-    pk<-st.pv[k]
-    de[which(pv<=pk)]<-1
-  }
-  y<-list(nr=k, th=pk, de=de)
-  return (y)
-}
-summary(bh.func(p, 0.05)[1:900]$de)
-summary(bh.func(p, 0.90)[1:900]$de)
-
-```
 
 ### 참고 자료
 
