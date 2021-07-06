@@ -1,7 +1,7 @@
 ---
 title: "tidymodels using bayes optimization"
 description: |
-  XGBOOST bayes opt 사용법 
+  XGBOOST using bayes optimization 
 author:
   - name: dondon
     url: {}
@@ -9,28 +9,15 @@ date: 2021-07-05
 output:
   distill::distill_article:
     toc: true
-    #toc_depth: 3
+    toc_depth: 3
     self_contained: false
-    #highlight: default
-    #highlight_downlit: true
-    #code_folding: false
-ditor_options: 
-  chunk_output_type: console
+    highlight: default
+    highlight_downlit: true
+    code_folding: false
 categories:
   - Machine learning
   - tidymodels 
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  comment = " ",
-  echo = TRUE,
-  message = FALSE,
-  warning = FALSE,
-  R.options = list(width = 80)
-)
-```
-
 
 머신러닝 모델의 성능을 결정하는데 가장 중요한 요인 중 하나는 hpyerparameter를 어떻게 튜닝할지 결정하는 것이다. tidymodels 패키지에서는 hyperparameter 튜닝에 관한 다양한 튜닝 방법을 제공한다. tidymodels에서 제공하는 대표적인 튜닝 방법은 다음과 같다.
 
@@ -44,10 +31,15 @@ knitr::opts_chunk$set(
 
 -   bayes tune
 
+이 중 bayes tune은 가장 오래걸리지만 성능이 가장 좋은 방법이다. 백문이 불여일견이기 때문에 튜토리얼 코드를 올린다. 데이터는 kaggle 튜토리얼에서 많이 활용하는 bike sharing demand 데이터를 가져왔다. 실제로 xgboost를 bayes tuning 한 후에 제출하면 top 3% 정도 랭크된다.
 
-# Preparations 
+**데이터 출처**
 
-## Libraries 
+<https://www.kaggle.com/c/bike-sharing-demand>
+
+# Preparations
+
+## Libraries
 
 ```{r load_lib, message=FALSE, warning=FALSE, results='hide'}
 library(tidymodels)
@@ -62,7 +54,7 @@ library(themis)
 theme_set(theme_bw())
 ```
 
-## Data load 
+## Data load
 
 ```{r}
 file_path <- getwd()
@@ -75,9 +67,7 @@ train <- read_csv(file.path(file_path, "train.csv"))
 test <- read_csv(file.path(file_path, "test.csv"))
 ```
 
-
-
-# Data overview (데이터 기본정보) 
+# Data overview (데이터 기본정보)
 
 ## train data
 
@@ -97,7 +87,7 @@ test %>%
 
 ```
 
-# data preprocessing 
+# data preprocessing
 
 ## combine train, test
 
@@ -133,7 +123,7 @@ all_data$wday <- factor(all_data$wday, labels = c('Sun', 'Mon', 'Tue', 'Wed', 'T
 all_data$month <- as.factor(all_data$month)
 ```
 
-# univariate visualization 
+# univariate visualization
 
 ## count(target variable)
 
@@ -198,7 +188,7 @@ all_data %>%
     GGally::ggpairs(mapping = aes(color = workingday))
 ```
 
-# factor variable visualization 
+# factor variable visualization
 
 ## season vs count
 
@@ -288,7 +278,7 @@ all_data %>%
     bake(new_data = all_data) -> all_data
 ```
 
-# Recipe + preperation 
+# Recipe + preperation
 
 ```{r}
 bike_res <- all_data %>% 
@@ -302,13 +292,13 @@ bike_res <- all_data %>%
     
 ```
 
-# Juice 
+# Juice
 
 ```{r}
 all_data2 <- juice(bike_res)
 ```
 
-# Split train, test 
+# Split train, test
 
 ```{r}
 train_index <- seq_len(nrow(train))
@@ -316,7 +306,7 @@ train2 <- all_data2[train_index,]
 test2 <- all_data2[-train_index,]
 ```
 
-# XGboost setting 
+# XGboost setting
 
 ## XGBOOST hyperparameter setting
 
@@ -337,7 +327,7 @@ params <- parameters(xgb_spec) %>%
     finalize(train2)
 ```
 
-# XGboost workflow 
+# XGboost workflow
 
 ## workflow model setting
 
@@ -355,7 +345,7 @@ vb_folds <- vfold_cv(train2, v = 5, strata = count)
 vb_folds
 ```
 
-## hyperparameter tuning
+## bayes tuning
 
 ```{r}
 library(tictoc)
@@ -403,7 +393,7 @@ final_workflow <- xgb_wf %>% update_model(final_model)
 xgb_fit <- fit(final_workflow, data = train2)
 ```
 
-# Result 
+# Result
 
 ## Prediction
 
