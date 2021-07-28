@@ -155,7 +155,7 @@ permutation importance는 **모델을 학습시킨 이후(post-hoc)** 특정 변
 
 **Example**
 
-![<https://www.kaggle.com/dansbecker/permutation-importance>](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%253A%252F%252Fblog.kakaocdn.net%252Fdn%252FcY8xmU%252FbtqHLexe9aU%252FJTfnc76PayQ0R7kZKJmyo0%252Fimg.png)
+![<https://www.kaggle.com/dansbecker/permutation-importance>](image19.png)
 
 사람의 10살 때의 정보를 이용해서 10년 후 20살 때의 키를 예측하려고 한다.
 
