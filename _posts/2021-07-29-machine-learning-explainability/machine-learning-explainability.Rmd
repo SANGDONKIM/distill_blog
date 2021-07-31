@@ -341,11 +341,11 @@ Shapley value는 Lloyd Shapley가 정의한 협동적 게임이론을 근거로 
 
 이렇게 개별 팀원이 빠졌을 때와 빠지지 않았을 때를 비교해서 쉽게 기여도를 계산할 수 있지만, 문제점은 개별 팀원 사이에 관계를 고려하지 못하는 것이다.
 
-shapley value는 이러한 문제를 극복하기 위해서 개별 팀원의 모든 경우의 수를 모두 고려해서 개별 팀원의 기여도를 계산하는 방식을 채택한다.
+shapley value는 이러한 문제를 극복하기 위해서 개별 팀원이 빠졌을 때와 빠지지 않았을 때의 모든 경우의 수를 고려해서 개별 팀원의 기여도를 계산하는 방식을 채택한다.
 
 ![<https://www.youtube.com/watch?v=9haIOplEIGM&t=152s>](image12.png)
 
-머신러닝 모델로 일반화를 하면 팀 내의 개별 팀원은 feature로 볼 수 있고, Game은 Black box 모델, Payout은 prediction 값으로 볼 수 있다. 정리하면 shapley value는 각 feature가 예측에 얼마나 기여를 했는지 측정하는 측도로 볼 수 있고, 이 측도를 구하기 위해서 모든 하위 부분집합의 값을 계산하는 방법을 채택한다.
+머신러닝 모델로 일반화를 하면 팀 내의 개별 팀원은 feature로 볼 수 있고, Game은 Black box 모델, Payout은 prediction 값으로 볼 수 있다. 정리하면 shapley value는 각 feature가 예측에 얼마나 기여를 했는지 측정하는 측도로 볼 수 있고, 이 측도를 구하기 위해서 모든 하위 부분집합의 값을 계산하는 방법을 채택한다. 이를 **marginal contribution** 이라고 하며, 각 feature 별로 계산된 **marginal contribution**을 평균내서 최종 shapley value 값을 산출한다.
 
 **process**
 
@@ -367,84 +367,241 @@ shapley value를 구하는 순서는 간략하게 다음과 같다.
 
 **Example**
 
-아래 이미지의 예시는 X1 변수에 대해 shapley value를 구하는 예제이다.
+위의 kaggle competition 예제로 다시 돌아가서 kaggle competition에 참여한 3명의 player가 있다고 가정해보자. 여기서 각 player에 대한 상금의 기여분에 대한 경우의 수는 다음과 같다.
 
-먼저 X1 변수를 제외할 수 있는 경우의 수에 따라 각 쌍을 구성하고 예측값의 차이를 계산한다.
+$$
+\begin{align*}
+&val(1) = 100, \, val(2) = 125, \, val(3) = 50, \\
+&val(1, 2) = 270, \, val(1, 3) = 375, \, val(2, 3) = 350, \\
+&\, val(1, 2, 3) = 500
+\end{align*}
+$$
 
-![<https://www.youtube.com/watch?v=f2XqxOny3NA&t=299s>](image13.png)
+즉, 3명의 player가 모두 참여했을 때는 500\$를 수령할 수 있지만, 1번 player만 참여했을 때는 100\$, 2번 player만 참여했을 때는 125\$, 1번과 2번 player가 동시에 참여했을 때는 270\$ .. etc 으로 해석할 수 있다(실제 ML model에서 val은 prediction value이므로 주어진 값이다).
 
-두번째로, 변수 하나만 사용했을 때, 변수를 2개 사용했을 때, 변수를 3개 사용했을 때의 쌍과 X1이 제외될 수 있는 쌍 사이의 비율을 이용해서 가중치를 구한다.
+이제 각 player별 **marginal contribution**을 계산할 수 있는데 아래 table과 같이 계산된다.
 
-![<https://www.youtube.com/watch?v=f2XqxOny3NA&t=299s>](image14.png)
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Probability  | combination            | 1's marginal contribution                 | 2's marginal contribution                                                        | 3's marginal contribution                                                                                      |
++==============+========================+===========================================+==================================================================================+================================================================================================================+
+| $$           | first 1, then2, then3: | $$                                        | $$                                                                               | $$                                                                                                             |
+|  \frac{1}{6} |                        |                              val(1) = 100 |                                                          val(1,2)-val(1) = 170   |                                                                                      val(1,2,3)-val(1,2) = 230 |
+|  $$          | $$                     |                              $$           |                                                          $$                      |                                                                                      $$                        |
+|              |                123     |                                           |                                                                                  |                                                                                                                |
+|              |                $$      |                                           |                                                                                  |                                                                                                                |
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $$           | $$                     | $$                                        | $$                                                                               | $$                                                                                                             |
+|  \frac{1}{6} |                132     |                              val(1)=100   |                                                          val(1,2,3)=val(1,3)=125 |                                                                                      val(1,3)-val(1)=275       |
+|  $$          |                $$      |                              $$           |                                                          $$                      |                                                                                      $$                        |
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $$           | $$                     | $$                                        | $$                                                                               | $$                                                                                                             |
+|  \frac{1}{6} |                213     | val(1,2)-val(2)=145                       | val(2)=125                                                                       | val(1,2,3)-val(1,2)=230                                                                                        |
+|  $$          |                $$      | $$                                        | $$                                                                               | $$                                                                                                             |
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $$           | $$                     | $$                                        | $$                                                                               | $$                                                                                                             |
+|  \frac{1}{6} |                231     | val(1,2,3)-val(2,3)=150                   | val(2)=125                                                                       | val(2,3)-val(2)=225                                                                                            |
+|  $$          |                $$      | $$                                        | $$                                                                               | $$                                                                                                             |
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $$           | $$                     | $$                                        | $$                                                                               | $$                                                                                                             |
+|  \frac{1}{6} |                312     | val(1,3)-val(3)=375                       | val(1,2,3)-val(1,3)=125                                                          | val(3)=50                                                                                                      |
+|  $$          |                $$      | $$                                        | $$                                                                               | $$                                                                                                             |
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $$           | $$                     | $$                                        | $$                                                                               | $$                                                                                                             |
+|  \frac{1}{6} |                321     | val(1,2,3)-val(2,3)=150                   | val(2,3)-val(3)=300                                                              | val(3)=50                                                                                                      |
+|  $$          |                $$      | $$                                        | $$                                                                               | $$                                                                                                             |
++--------------+------------------------+-------------------------------------------+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 
-마지막으로, 첫번째 단계에서 구한 예측값의 차이에 두번째 단계에서 구한 가중치를 이용한 가중합을 이용해서 shapley value를 구한다.
+: <http://faculty.econ.ucdavis.edu/faculty/bonanno/teaching/122/Shapley.pdf>
 
-![<https://www.youtube.com/watch?v=f2XqxOny3NA&t=299s>](image15.png)
+각 변수별 expected marginal contribution, 즉 shapley value를 구해보면 다음과 같다.
+
+$\phi_1(val)$(1's expected marginal contribution) : $\frac{1}{6}(100+100+145+150+325+150)=\frac{970}{6}$
+
+$\phi_2(val)$(2's expected marginal contribution) : $\frac{1}{6}(170+125+125+125+125+300)=\frac{970}{6}$
+
+$\phi_3(val)$(3's expected marginal contribution) : $\frac{1}{6}(230+275+230+225+50+50)=\frac{1060}{6}$
+
+1's, 2's, 3's expected marginal contribution을 모두 합하면 500이 되고, 이 값은 $val(1,2,3)$ 값과 같다.
+
+$\frac{970+970+1060}{6}=\frac{3000}{6} = 500=val(1,2,3)$
 
 **R code**
 
+**package: fastshap, DALEX, iml, shapper등이 있음**
+
+## DALEX 패키지를 이용해서 SHAP을 그리는 방법
+
+-   tidymodels workflow를 동일하게 수행
+
+-   fit함수의 결과를 변수에 저장
+
 ```{r}
-data(ames)
-ames <- mutate(ames, Sale_Price = log10(Sale_Price))
+library(DALEX)
+titanic %>% is.na() %>% colSums()
+titanic_rec <- titanic %>% 
+  recipe(survived ~ class + gender + age + 
+                sibsp + parch + fare + embarked) %>% 
+  step_bagimpute(age, fare, sibsp, parch)
+  
+rf_model <- 
+    rand_forest(trees = 1000) %>% 
+    set_engine("ranger") %>% 
+    set_mode("classification")
 
-set.seed(123)
-ames_split <- initial_split(ames, prop = 0.80, strata = Sale_Price)
-ames_train <- training(ames_split)
-ames_test  <-  testing(ames_split)
+rf_wflow <- 
+  workflow() %>% 
+  add_model(rf_model) %>% 
+  add_recipe(titanic_rec)
+  
 
-ames_rec <- 
-  recipe(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type + 
-           Latitude + Longitude, data = ames_train) %>%
-  step_log(Gr_Liv_Area, base = 10) %>% 
-  step_other(Neighborhood, threshold = 0.01) %>% 
-  step_dummy(all_nominal_predictors()) %>% 
-  step_interact( ~ Gr_Liv_Area:starts_with("Bldg_Type_") ) %>% 
-  step_ns(Latitude, Longitude, deg_free = 20)
+rf_fit <- rf_wflow %>% fit(data = titanic %>% select(-country))
+rf_ex_fit <- rf_fit %>% extract_fit_parsnip()
+```
+
+-   explain()
+
+    -   model : fitting 완료된 모델
+
+    -   data : target 변수 제외한 데이터프레임
+
+    -   y : target 변수
+
+-   다른 라이브러리를 이용해서 모델을 fitting 했을 때 구조가 서로 다를 수 있으므로 explain 함수를 이용해서 균일한 인터페이스를 갖는 객체로 만들어줌
+
+-   shapley value가 계산되는 것은 아님
+
+```{r}
+library(DALEX)
+titanic_rf_exp <-DALEX::explain(model = rf_fit, 
+                       data = titanic %>% select(-country),
+                       y = titanic_imputed$survived == "yes", 
+                       label = "Random Forest")
 
 
-xgb_model <- 
-    boost_tree(trees = 1000) %>% 
-    set_engine("xgboost") %>% 
-    set_mode("regression")
+henry <- archivist::aread("pbiecek/models/a6538") 
+henry
 
-xgb_wflow <- 
-    workflow() %>% 
-    add_model(xgb_model) %>% 
-    add_recipe(ames_rec) 
+predict(titanic_rf_exp, henry)
+```
 
-xgb_fit <- xgb_wflow %>% fit(data = ames_train)
+**shapley value 계산**
 
-xgb_ex_fit <- xgb_fit %>% extract_fit_parsnip()
+-   predict_parts()
+
+    -   explainer : explain 함수를 적용한 모델
+
+    -   new_observation : obs
+
+    -   type : shap, oscillations, oscillations_uni, oscillations_emp, break_down or break_down_interactions 등의 다양한 옵션이 있음
+
+    -   B : 25(default), shapley value 계산할 때 설명변수의 무작위 순서의 조합 개수
+
+```{r}
+shap_henry <- predict_parts(explainer = titanic_rf_exp,
+                      new_observation = henry, 
+                                 type = "shap",
+                                    B = 25)
+shap_henry
+```
+
+```{r}
+plot(shap_henry)
+```
+
+-   henry의 나이는 47세로 shapley value 값이 음수로 표시되고, age는 생존에 부정적인 기여를 했다고 해석할 수 있음
+
+-   henry의 class는 1등석으로 shapley value 값이 양수로 표시되고, class는 생존에 매우 긍정적인 기여를 했다고 해석할 수 있음
+
+## fastshap 패키지를 이용한 방법
+
+-   fastshap::explain()
+
+    -   model : extract_fit_parsnip() 적용한 모델
+
+    -   X : data
+
+    -   pred_wrapper : 예측값, classification의 경우 기준 범주의 확률
+
+        -   xgb, lm은 적용안하고 exact = T만 해줘도 됨
+
+        -   나머지 모델은 pred_wrapper을 넣어줘야함
+
+    -   exact = T : 근사값이 아닌 정확한 shapley value 계산
+    
+
+**Shapley feature importance**
+
+```{r}
+data("titanic_imputed")  
+
+titanic_rec <- titanic_imputed %>% 
+  recipe(survived ~ .) %>% 
+  step_mutate(survived = as.factor(survived))
+  
+rf_model <- 
+    rand_forest(trees = 1000) %>% 
+    set_engine("ranger") %>% 
+    set_mode("classification")
+
+rf_wflow <- 
+  workflow() %>% 
+  add_model(rf_model) %>% 
+  add_recipe(titanic_rec)
+  
+
+rf_fit <- rf_wflow %>% fit(data = titanic_imputed)
+rf_ex_fit <- rf_fit %>% extract_fit_parsnip()
 
 ```
 
-**Shapley importance**
+
+-   shap <- explain(xgb_ex_fit$fit, X = X, exact = T)
+-   xgboost, lm만 exact = T 가능, 나머지 불가능(공식 문서 참고)
+
 
 ```{r}
 library(fastshap)
-X <- prep(ames_rec, ames_train) %>% 
-  juice() %>% 
-  dplyr::select(-Sale_Price) %>% 
-  as.matrix()
+predict(rf_ex_fit$fit, titanic_imputed)
+predict(rf_ex_fit$fit, titanic_imputed)$predictions %>% head()
 
-shap <- explain(xgb_ex_fit$fit, X = X, exact = T)
+pred_fun <- function(X.model, newdata) {
+  predict(X.model, newdata)$predictions[,2]
+}
+
+shap <- explain(rf_ex_fit$fit, X = titanic_imputed, pred_wrapper = pred_fun, nsim = 20)
+
 autoplot(shap)
+
+
 ```
 
-**Partial dependence plot**
+**Shapley dependence plot**
 
 ```{r}
-feat <- prep(ames_rec, ames_train) %>% 
-  juice()
+pred_fun <- function(X.model, newdata) {
+  predict(X.model, newdata)$predictions[,2]
+}
 
-autoplot(shap, 
-         type = "dependence", 
-         feature = "Gr_Liv_Area", 
-         X = feat,
-         smooth = TRUE) 
-         #color_by = "Status")
+autoplot(shap, type = "dependence", feature = "fare", X = titanic_imputed, smooth = TRUE)
+
 
 ```
+
+**contribution plot**
+
+```{r}
+autoplot(shap, type = "contribution", row_num = 1)
+```
+
+
+```{r, error = T}
+force_plot(shap[1,], baseline = mean(pred_fun(rf_ex_fit, titanic_imputed)), feature_values = titanic_imputed[1,], display = "html")
+
+```
+
+
+
+<http://xai-tools.drwhy.ai/fastshap.html>
 
 **참고자료**
 
@@ -467,3 +624,7 @@ autoplot(shap,
 <https://www.youtube.com/watch?v=lIT5-piVtRw>
 
 <https://www.hfshr.xyz/posts/2020-06-07-variable-importance-with-fastshap/>
+
+<https://bradleyboehmke.github.io/HOML/iml.html>
+
+<https://ema.drwhy.ai/shapley.html#SHAPRcode>

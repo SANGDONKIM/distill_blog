@@ -132,7 +132,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["image11.png","image12.png","image13.png","image14.png","image15.png","image16.PNG","image17.PNG","image18.png","image19.png","machine-learning-explainability_files/anchor-4.2.2/anchor.min.js","machine-learning-explainability_files/bowser-1.9.3/bowser.min.js","machine-learning-explainability_files/distill-2.2.21/template.v2.js","machine-learning-explainability_files/figure-html5/unnamed-chunk-10-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-2-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-4-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-5-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-7-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-9-1.png","machine-learning-explainability_files/header-attrs-2.9/header-attrs.js","machine-learning-explainability_files/jquery-1.11.3/jquery.min.js","machine-learning-explainability_files/popper-2.6.0/popper.min.js","machine-learning-explainability_files/tippy-6.2.7/tippy-bundle.umd.min.js","machine-learning-explainability_files/tippy-6.2.7/tippy-light-border.css","machine-learning-explainability_files/tippy-6.2.7/tippy.css","machine-learning-explainability_files/tippy-6.2.7/tippy.umd.min.js","machine-learning-explainability_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["image11.png","image12.png","image13.png","image14.png","image15.png","image16.PNG","image17.PNG","image18.png","image19.png","machine-learning-explainability_files/anchor-4.2.2/anchor.min.js","machine-learning-explainability_files/bowser-1.9.3/bowser.min.js","machine-learning-explainability_files/distill-2.2.21/template.v2.js","machine-learning-explainability_files/figure-html5/unnamed-chunk-10-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-11-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-13-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-14-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-15-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-2-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-4-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-5-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-7-1.png","machine-learning-explainability_files/figure-html5/unnamed-chunk-9-1.png","machine-learning-explainability_files/header-attrs-2.9/header-attrs.js","machine-learning-explainability_files/jquery-1.11.3/jquery.min.js","machine-learning-explainability_files/popper-2.6.0/popper.min.js","machine-learning-explainability_files/tippy-6.2.7/tippy-bundle.umd.min.js","machine-learning-explainability_files/tippy-6.2.7/tippy-light-border.css","machine-learning-explainability_files/tippy-6.2.7/tippy.css","machine-learning-explainability_files/tippy-6.2.7/tippy.umd.min.js","machine-learning-explainability_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2149,6 +2149,8 @@ gtag('config', 'G-LESWHZMHS2');
 <li><a href="#permutation-importance">Permutation importance</a></li>
 <li><a href="#partial-dependence-plot">Partial dependence plot</a></li>
 <li><a href="#shapley-value">Shapley value</a></li>
+<li><a href="#dalex-패키지를-이용해서-shap을-그리는-방법">DALEX 패키지를 이용해서 SHAP을 그리는 방법</a></li>
+<li><a href="#fastshap-패키지를-이용한-방법">fastshap 패키지를 이용한 방법</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2253,7 +2255,7 @@ VI_i=\frac{1}{|B|} \sum_{t \in B} VI_i(t)
 </div>
 <pre><code>parsnip model object
 
-Fit time:  861ms 
+Fit time:  770ms 
 Ranger result
 
 Call:
@@ -2267,8 +2269,8 @@ Mtry:                             1
 Target node size:                 5 
 Variable importance mode:         impurity 
 Splitrule:                        variance 
-OOB prediction error (MSE):       0.008737611 
-R squared (OOB):                  0.7211417 </code></pre>
+OOB prediction error (MSE):       0.008707718 
+R squared (OOB):                  0.7220957 </code></pre>
 </div>
 <p><strong>Gini importance plot</strong></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2336,7 +2338,7 @@ R squared (OOB):                  0.7211417 </code></pre>
 </div>
 <pre><code>parsnip model object
 
-Fit time:  690ms 
+Fit time:  680ms 
 Support Vector Machine object of class &quot;ksvm&quot; 
 
 SV type: eps-svr  (regression) 
@@ -2457,9 +2459,9 @@ Training error : 0.278962 </code></pre>
   -&gt; predict function  :  yhat.workflow  will be used ( [33m default [39m )
   -&gt; predicted values  :  No value for predict function target column. ( [33m default [39m )
   -&gt; model_info        :  package tidymodels , ver. 0.1.3 , task regression ( [33m default [39m ) 
-  -&gt; predicted values  :  numerical, min =  4.895072 , mean =  5.220603 , max =  5.512936  
+  -&gt; predicted values  :  numerical, min =  4.907879 , mean =  5.220641 , max =  5.507599  
   -&gt; residual function :  difference between y and yhat ( [33m default [39m )
-  -&gt; residuals         :  numerical, min =  -0.8182877 , mean =  3.782346e-05 , max =  0.3650106  
+  -&gt; residuals         :  numerical, min =  -0.8210589 , mean =  -3.0817e-07 , max =  0.3742423  
  [32m A new explainer has been created! [39m </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pdp_rf</span> <span class='op'>&lt;-</span> <span class='fu'>model_profile</span><span class='op'>(</span><span class='va'>explainer_rf</span>, N <span class='op'>=</span> <span class='cn'>NULL</span>, 
@@ -2479,11 +2481,11 @@ Training error : 0.278962 </code></pre>
 <p>가장 공평한 방법은 개별 팀원의 기여도를 통해서 우승에 크게 기여한 사람에게 큰 금액을, 우승에 작게 기여한 사람에게 적은 금액을 부여하는 것이다. 여기서 한 가지 문제는 기여도를 어떻게 측정할 것인지에 대한 측도가 필요하다. 가장 쉬운 방법은 한명이 빠졌을 때의 상금과 4명이 우승했을 때의 상금을 비교하는 것이다.</p>
 <p>그림으로 예를 들면 파란색 팀원은 도메인 전문가로 팀에 상당한 기여를 했다고 가정해보자. 파란색 팀원이 빠졌을 경우 팀은 3등으로 순위가 떨어져 상금을 3000 달러 밖에 수령하지 못한다고 가정해보면 파란색 팀원은 대략 7000달러의 기여도를 갖고 있다고 볼 수 있다.</p>
 <p>이렇게 개별 팀원이 빠졌을 때와 빠지지 않았을 때를 비교해서 쉽게 기여도를 계산할 수 있지만, 문제점은 개별 팀원 사이에 관계를 고려하지 못하는 것이다.</p>
-<p>shapley value는 이러한 문제를 극복하기 위해서 개별 팀원의 모든 경우의 수를 모두 고려해서 개별 팀원의 기여도를 계산하는 방식을 채택한다.</p>
+<p>shapley value는 이러한 문제를 극복하기 위해서 개별 팀원이 빠졌을 때와 빠지지 않았을 때의 모든 경우의 수를 고려해서 개별 팀원의 기여도를 계산하는 방식을 채택한다.</p>
 <figure>
 <img src="image12.png" alt="https://www.youtube.com/watch?v=9haIOplEIGM&amp;t=152s" /><figcaption aria-hidden="true"><a href="https://www.youtube.com/watch?v=9haIOplEIGM&amp;t=152s" class="uri">https://www.youtube.com/watch?v=9haIOplEIGM&amp;t=152s</a></figcaption>
 </figure>
-<p>머신러닝 모델로 일반화를 하면 팀 내의 개별 팀원은 feature로 볼 수 있고, Game은 Black box 모델, Payout은 prediction 값으로 볼 수 있다. 정리하면 shapley value는 각 feature가 예측에 얼마나 기여를 했는지 측정하는 측도로 볼 수 있고, 이 측도를 구하기 위해서 모든 하위 부분집합의 값을 계산하는 방법을 채택한다.</p>
+<p>머신러닝 모델로 일반화를 하면 팀 내의 개별 팀원은 feature로 볼 수 있고, Game은 Black box 모델, Payout은 prediction 값으로 볼 수 있다. 정리하면 shapley value는 각 feature가 예측에 얼마나 기여를 했는지 측정하는 측도로 볼 수 있고, 이 측도를 구하기 위해서 모든 하위 부분집합의 값을 계산하는 방법을 채택한다. 이를 <strong>marginal contribution</strong> 이라고 하며, 각 feature 별로 계산된 <strong>marginal contribution</strong>을 평균내서 최종 shapley value 값을 산출한다.</p>
 <p><strong>process</strong></p>
 <p><span class="math display">\[
 \begin{align*}
@@ -2501,90 +2503,390 @@ Training error : 0.278962 </code></pre>
 <li>가중합 계산</li>
 </ol>
 <p><strong>Example</strong></p>
-<p>아래 이미지의 예시는 X1 변수에 대해 shapley value를 구하는 예제이다.</p>
-<p>먼저 X1 변수를 제외할 수 있는 경우의 수에 따라 각 쌍을 구성하고 예측값의 차이를 계산한다.</p>
-<figure>
-<img src="image13.png" alt="https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s" /><figcaption aria-hidden="true"><a href="https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s" class="uri">https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s</a></figcaption>
-</figure>
-<p>두번째로, 변수 하나만 사용했을 때, 변수를 2개 사용했을 때, 변수를 3개 사용했을 때의 쌍과 X1이 제외될 수 있는 쌍 사이의 비율을 이용해서 가중치를 구한다.</p>
-<figure>
-<img src="image14.png" alt="https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s" /><figcaption aria-hidden="true"><a href="https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s" class="uri">https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s</a></figcaption>
-</figure>
-<p>마지막으로, 첫번째 단계에서 구한 예측값의 차이에 두번째 단계에서 구한 가중치를 이용한 가중합을 이용해서 shapley value를 구한다.</p>
-<figure>
-<img src="image15.png" alt="https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s" /><figcaption aria-hidden="true"><a href="https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s" class="uri">https://www.youtube.com/watch?v=f2XqxOny3NA&amp;t=299s</a></figcaption>
-</figure>
+<p>위의 kaggle competition 예제로 다시 돌아가서 kaggle competition에 참여한 3명의 player가 있다고 가정해보자. 여기서 각 player에 대한 상금의 기여분에 대한 경우의 수는 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{align*}
+&amp;val(1) = 100, \, val(2) = 125, \, val(3) = 50, \\
+&amp;val(1, 2) = 270, \, val(1, 3) = 375, \, val(2, 3) = 350, \\
+&amp;\, val(1, 2, 3) = 500
+\end{align*}
+\]</span></p>
+<p>즉, 3명의 player가 모두 참여했을 때는 500$를 수령할 수 있지만, 1번 player만 참여했을 때는 100$, 2번 player만 참여했을 때는 125$, 1번과 2번 player가 동시에 참여했을 때는 270$ .. etc 으로 해석할 수 있다(실제 ML model에서 val은 prediction value이므로 주어진 값이다).</p>
+<p>이제 각 player별 <strong>marginal contribution</strong>을 계산할 수 있는데 아래 table과 같이 계산된다.</p>
+<table>
+<caption><a href="http://faculty.econ.ucdavis.edu/faculty/bonanno/teaching/122/Shapley.pdf" class="uri">http://faculty.econ.ucdavis.edu/faculty/bonanno/teaching/122/Shapley.pdf</a></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 15%" />
+<col style="width: 29%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Probability</th>
+<th>combination</th>
+<th>1’s marginal contribution</th>
+<th>2’s marginal contribution</th>
+<th>3’s marginal contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[
+ \frac{1}{6}
+ \]</span></td>
+<td><p>first 1, then2, then3:</p>
+<p><span class="math display">\[
+               123
+               \]</span></p></td>
+<td><span class="math display">\[
+                             val(1) = 100
+                             \]</span></td>
+<td><span class="math display">\[
+                                                         val(1,2)-val(1) = 170
+                                                         \]</span></td>
+<td><span class="math display">\[
+                                                                                     val(1,2,3)-val(1,2) = 230
+                                                                                     \]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[
+ \frac{1}{6}
+ \]</span></td>
+<td><span class="math display">\[
+               132
+               \]</span></td>
+<td><span class="math display">\[
+                             val(1)=100
+                             \]</span></td>
+<td><span class="math display">\[
+                                                         val(1,2,3)=val(1,3)=125
+                                                         \]</span></td>
+<td><span class="math display">\[
+                                                                                     val(1,3)-val(1)=275
+                                                                                     \]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[
+ \frac{1}{6}
+ \]</span></td>
+<td><span class="math display">\[
+               213
+               \]</span></td>
+<td><span class="math display">\[
+val(1,2)-val(2)=145
+\]</span></td>
+<td><span class="math display">\[
+val(2)=125
+\]</span></td>
+<td><span class="math display">\[
+val(1,2,3)-val(1,2)=230
+\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[
+ \frac{1}{6}
+ \]</span></td>
+<td><span class="math display">\[
+               231
+               \]</span></td>
+<td><span class="math display">\[
+val(1,2,3)-val(2,3)=150
+\]</span></td>
+<td><span class="math display">\[
+val(2)=125
+\]</span></td>
+<td><span class="math display">\[
+val(2,3)-val(2)=225
+\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[
+ \frac{1}{6}
+ \]</span></td>
+<td><span class="math display">\[
+               312
+               \]</span></td>
+<td><span class="math display">\[
+val(1,3)-val(3)=375
+\]</span></td>
+<td><span class="math display">\[
+val(1,2,3)-val(1,3)=125
+\]</span></td>
+<td><span class="math display">\[
+val(3)=50
+\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[
+ \frac{1}{6}
+ \]</span></td>
+<td><span class="math display">\[
+               321
+               \]</span></td>
+<td><span class="math display">\[
+val(1,2,3)-val(2,3)=150
+\]</span></td>
+<td><span class="math display">\[
+val(2,3)-val(3)=300
+\]</span></td>
+<td><span class="math display">\[
+val(3)=50
+\]</span></td>
+</tr>
+</tbody>
+</table>
+<p>각 변수별 expected marginal contribution, 즉 shapley value를 구해보면 다음과 같다.</p>
+<p><span class="math inline">\(\phi_1(val)\)</span>(1’s expected marginal contribution) : <span class="math inline">\(\frac{1}{6}(100+100+145+150+325+150)=\frac{970}{6}\)</span></p>
+<p><span class="math inline">\(\phi_2(val)\)</span>(2’s expected marginal contribution) : <span class="math inline">\(\frac{1}{6}(170+125+125+125+125+300)=\frac{970}{6}\)</span></p>
+<p><span class="math inline">\(\phi_3(val)\)</span>(3’s expected marginal contribution) : <span class="math inline">\(\frac{1}{6}(230+275+230+225+50+50)=\frac{1060}{6}\)</span></p>
+<p>1’s, 2’s, 3’s expected marginal contribution을 모두 합하면 500이 되고, 이 값은 <span class="math inline">\(val(1,2,3)\)</span> 값과 같다.</p>
+<p><span class="math inline">\(\frac{970+970+1060}{6}=\frac{3000}{6} = 500=val(1,2,3)\)</span></p>
 <p><strong>R code</strong></p>
+<p><strong>package: fastshap, DALEX, iml, shapper등이 있음</strong></p>
+<h2 id="dalex-패키지를-이용해서-shap을-그리는-방법">DALEX 패키지를 이용해서 SHAP을 그리는 방법</h2>
+<ul>
+<li><p>tidymodels workflow를 동일하게 수행</p></li>
+<li><p>fit함수의 결과를 변수에 저장</p></li>
+</ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>ames</span><span class='op'>)</span>
-<span class='va'>ames</span> <span class='op'>&lt;-</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>ames</span>, Sale_Price <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log10</a></span><span class='op'>(</span><span class='va'>Sale_Price</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dalex.drwhy.ai'>DALEX</a></span><span class='op'>)</span>
+<span class='va'>titanic</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colSums</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  gender      age    class embarked  country     fare    sibsp 
+       0        2        0        0       81       26       10 
+   parch survived 
+      10        0 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>titanic_rec</span> <span class='op'>&lt;-</span> <span class='va'>titanic</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>recipe</span><span class='op'>(</span><span class='va'>survived</span> <span class='op'>~</span> <span class='va'>class</span> <span class='op'>+</span> <span class='va'>gender</span> <span class='op'>+</span> <span class='va'>age</span> <span class='op'>+</span> 
+                <span class='va'>sibsp</span> <span class='op'>+</span> <span class='va'>parch</span> <span class='op'>+</span> <span class='va'>fare</span> <span class='op'>+</span> <span class='va'>embarked</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>step_bagimpute</span><span class='op'>(</span><span class='va'>age</span>, <span class='va'>fare</span>, <span class='va'>sibsp</span>, <span class='va'>parch</span><span class='op'>)</span>
+  
+<span class='va'>rf_model</span> <span class='op'>&lt;-</span> 
+    <span class='fu'>rand_forest</span><span class='op'>(</span>trees <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"ranger"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>set_mode</span><span class='op'>(</span><span class='st'>"classification"</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
-<span class='va'>ames_split</span> <span class='op'>&lt;-</span> <span class='fu'>initial_split</span><span class='op'>(</span><span class='va'>ames</span>, prop <span class='op'>=</span> <span class='fl'>0.80</span>, strata <span class='op'>=</span> <span class='va'>Sale_Price</span><span class='op'>)</span>
-<span class='va'>ames_train</span> <span class='op'>&lt;-</span> <span class='fu'>training</span><span class='op'>(</span><span class='va'>ames_split</span><span class='op'>)</span>
-<span class='va'>ames_test</span>  <span class='op'>&lt;-</span>  <span class='fu'>testing</span><span class='op'>(</span><span class='va'>ames_split</span><span class='op'>)</span>
+<span class='va'>rf_wflow</span> <span class='op'>&lt;-</span> 
+  <span class='fu'>workflow</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>add_model</span><span class='op'>(</span><span class='va'>rf_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>add_recipe</span><span class='op'>(</span><span class='va'>titanic_rec</span><span class='op'>)</span>
+  
 
-<span class='va'>ames_rec</span> <span class='op'>&lt;-</span> 
-  <span class='fu'>recipe</span><span class='op'>(</span><span class='va'>Sale_Price</span> <span class='op'>~</span> <span class='va'>Neighborhood</span> <span class='op'>+</span> <span class='va'>Gr_Liv_Area</span> <span class='op'>+</span> <span class='va'>Year_Built</span> <span class='op'>+</span> <span class='va'>Bldg_Type</span> <span class='op'>+</span> 
-           <span class='va'>Latitude</span> <span class='op'>+</span> <span class='va'>Longitude</span>, data <span class='op'>=</span> <span class='va'>ames_train</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>step_log</span><span class='op'>(</span><span class='va'>Gr_Liv_Area</span>, base <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>step_other</span><span class='op'>(</span><span class='va'>Neighborhood</span>, threshold <span class='op'>=</span> <span class='fl'>0.01</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>step_dummy</span><span class='op'>(</span><span class='fu'>all_nominal_predictors</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>step_interact</span><span class='op'>(</span> <span class='op'>~</span> <span class='va'>Gr_Liv_Area</span><span class='op'>:</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"Bldg_Type_"</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>step_ns</span><span class='op'>(</span><span class='va'>Latitude</span>, <span class='va'>Longitude</span>, deg_free <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>
-
-
-<span class='va'>xgb_model</span> <span class='op'>&lt;-</span> 
-    <span class='fu'>boost_tree</span><span class='op'>(</span>trees <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-    <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"xgboost"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-    <span class='fu'>set_mode</span><span class='op'>(</span><span class='st'>"regression"</span><span class='op'>)</span>
-
-<span class='va'>xgb_wflow</span> <span class='op'>&lt;-</span> 
-    <span class='fu'>workflow</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-    <span class='fu'>add_model</span><span class='op'>(</span><span class='va'>xgb_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-    <span class='fu'>add_recipe</span><span class='op'>(</span><span class='va'>ames_rec</span><span class='op'>)</span> 
-
-<span class='va'>xgb_fit</span> <span class='op'>&lt;-</span> <span class='va'>xgb_wflow</span> <span class='op'>%&gt;%</span> <span class='fu'>fit</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ames_train</span><span class='op'>)</span>
-
-<span class='va'>xgb_ex_fit</span> <span class='op'>&lt;-</span> <span class='va'>xgb_fit</span> <span class='op'>%&gt;%</span> <span class='fu'>extract_fit_parsnip</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>rf_fit</span> <span class='op'>&lt;-</span> <span class='va'>rf_wflow</span> <span class='op'>%&gt;%</span> <span class='fu'>fit</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>titanic</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>country</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>rf_ex_fit</span> <span class='op'>&lt;-</span> <span class='va'>rf_fit</span> <span class='op'>%&gt;%</span> <span class='fu'>extract_fit_parsnip</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p><strong>Shapley importance</strong></p>
+<ul>
+<li><p>explain()</p>
+<ul>
+<li><p>model : fitting 완료된 모델</p></li>
+<li><p>data : target 변수 제외한 데이터프레임</p></li>
+<li><p>y : target 변수</p></li>
+</ul></li>
+<li><p>다른 라이브러리를 이용해서 모델을 fitting 했을 때 구조가 서로 다를 수 있으므로 explain 함수를 이용해서 균일한 인터페이스를 갖는 객체로 만들어줌</p></li>
+<li><p>shapley value가 계산되는 것은 아님</p></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dalex.drwhy.ai'>DALEX</a></span><span class='op'>)</span>
+<span class='va'>titanic_rf_exp</span> <span class='op'>&lt;-</span><span class='fu'>DALEX</span><span class='fu'>::</span><span class='fu'><a href='https://dalex.drwhy.ai/reference/explain.html'>explain</a></span><span class='op'>(</span>model <span class='op'>=</span> <span class='va'>rf_fit</span>, 
+                       data <span class='op'>=</span> <span class='va'>titanic</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>country</span><span class='op'>)</span>,
+                       y <span class='op'>=</span> <span class='va'>titanic_imputed</span><span class='op'>$</span><span class='va'>survived</span> <span class='op'>==</span> <span class='st'>"yes"</span>, 
+                       label <span class='op'>=</span> <span class='st'>"Random Forest"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Preparation of a new explainer is initiated
+  -&gt; model label       :  Random Forest 
+  -&gt; data              :  2207  rows  8  cols 
+  -&gt; target variable   :  2207  values 
+  -&gt; predict function  :  yhat.workflow  will be used ( [33m default [39m )
+  -&gt; predicted values  :  No value for predict function target column. ( [33m default [39m )
+  -&gt; model_info        :  package tidymodels , ver. 0.1.3 , task classification ( [33m default [39m ) 
+  -&gt; model_info        :  Model info detected classification task but &#39;y&#39; is a logical . Converted to numeric.  ( [33m NOTE [39m )
+  -&gt; predicted values  :  numerical, min =  0.01244641 , mean =  0.3221946 , max =  0.9881611  
+  -&gt; residual function :  difference between y and yhat ( [33m default [39m )
+  -&gt; residuals         :  numerical, min =  -0.9881611 , mean =  -0.3221946 , max =  -0.01244641  
+ [32m A new explainer has been created! [39m </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>henry</span> <span class='op'>&lt;-</span> <span class='fu'>archivist</span><span class='fu'>::</span><span class='fu'><a href='https://pbiecek.github.io/archivist/reference/aread.html'>aread</a></span><span class='op'>(</span><span class='st'>"pbiecek/models/a6538"</span><span class='op'>)</span> 
+<span class='va'>henry</span>
+</code></pre>
+</div>
+<pre><code>  class gender age sibsp parch fare  embarked
+1   1st   male  47     0     0   25 Cherbourg</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>titanic_rf_exp</span>, <span class='va'>henry</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>      yes 
+0.3163465 </code></pre>
+</div>
+<p><strong>shapley value 계산</strong></p>
+<ul>
+<li><p>predict_parts()</p>
+<ul>
+<li><p>explainer : explain 함수를 적용한 모델</p></li>
+<li><p>new_observation : obs</p></li>
+<li><p>type : shap, oscillations, oscillations_uni, oscillations_emp, break_down or break_down_interactions 등의 다양한 옵션이 있음</p></li>
+<li><p>B : 25(default), shapley value 계산할 때 설명변수의 무작위 순서의 조합 개수</p></li>
+</ul></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>shap_henry</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dalex.drwhy.ai/reference/predict_parts.html'>predict_parts</a></span><span class='op'>(</span>explainer <span class='op'>=</span> <span class='va'>titanic_rf_exp</span>,
+                      new_observation <span class='op'>=</span> <span class='va'>henry</span>, 
+                                 type <span class='op'>=</span> <span class='st'>"shap"</span>,
+                                    B <span class='op'>=</span> <span class='fl'>25</span><span class='op'>)</span>
+<span class='va'>shap_henry</span>
+</code></pre>
+</div>
+<pre><code>                                            min           q1
+Random Forest: age = 47             -0.10148021 -0.069040921
+Random Forest: class = 1st           0.11825608  0.137872313
+Random Forest: embarked = Cherbourg  0.01609401  0.023990286
+Random Forest: fare = 25            -0.03695000 -0.017632917
+Random Forest: gender = male        -0.12813767 -0.114902287
+Random Forest: parch = 0            -0.01631725 -0.002677757
+Random Forest: sibsp = 0            -0.02490941 -0.015620362
+                                          median         mean
+Random Forest: age = 47             -0.055207539 -0.056452252
+Random Forest: class = 1st           0.143205056  0.146011900
+Random Forest: embarked = Cherbourg  0.025664837  0.033808514
+Random Forest: fare = 25            -0.012694829 -0.010978626
+Random Forest: gender = male        -0.108891086 -0.109722079
+Random Forest: parch = 0            -0.002571315 -0.002464873
+Random Forest: sibsp = 0            -0.005006134 -0.006050714
+                                               q3          max
+Random Forest: age = 47             -0.0397487117 -0.030168812
+Random Forest: class = 1st           0.1532274799  0.183527775
+Random Forest: embarked = Cherbourg  0.0398575999  0.061901491
+Random Forest: fare = 25            -0.0041515453  0.019977101
+Random Forest: gender = male        -0.1025975497 -0.091165124
+Random Forest: parch = 0            -0.0007044177  0.003460460
+Random Forest: sibsp = 0             0.0028295595  0.009513894</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>shap_henry</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="machine-learning-explainability_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<ul>
+<li><p>henry의 나이는 47세로 shapley value 값이 음수로 표시되고, age는 생존에 부정적인 기여를 했다고 해석할 수 있음</p></li>
+<li><p>henry의 class는 1등석으로 shapley value 값이 양수로 표시되고, class는 생존에 매우 긍정적인 기여를 했다고 해석할 수 있음</p></li>
+</ul>
+<h2 id="fastshap-패키지를-이용한-방법">fastshap 패키지를 이용한 방법</h2>
+<ul>
+<li><p>fastshap::explain()</p>
+<ul>
+<li><p>model : extract_fit_parsnip() 적용한 모델</p></li>
+<li><p>X : data</p></li>
+<li><p>pred_wrapper : 예측값, classification의 경우 기준 범주의 확률</p>
+<ul>
+<li><p>xgb, lm은 적용안하고 exact = T만 해줘도 됨</p></li>
+<li><p>나머지 모델은 pred_wrapper을 넣어줘야함</p></li>
+</ul></li>
+<li><p>exact = T : 근사값이 아닌 정확한 shapley value 계산</p></li>
+</ul></li>
+</ul>
+<p><strong>Shapley feature importance</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"titanic_imputed"</span><span class='op'>)</span>  
+
+<span class='va'>titanic_rec</span> <span class='op'>&lt;-</span> <span class='va'>titanic_imputed</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>recipe</span><span class='op'>(</span><span class='va'>survived</span> <span class='op'>~</span> <span class='va'>.</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>step_mutate</span><span class='op'>(</span>survived <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>survived</span><span class='op'>)</span><span class='op'>)</span>
+  
+<span class='va'>rf_model</span> <span class='op'>&lt;-</span> 
+    <span class='fu'>rand_forest</span><span class='op'>(</span>trees <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"ranger"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>set_mode</span><span class='op'>(</span><span class='st'>"classification"</span><span class='op'>)</span>
+
+<span class='va'>rf_wflow</span> <span class='op'>&lt;-</span> 
+  <span class='fu'>workflow</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>add_model</span><span class='op'>(</span><span class='va'>rf_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>add_recipe</span><span class='op'>(</span><span class='va'>titanic_rec</span><span class='op'>)</span>
+  
+
+<span class='va'>rf_fit</span> <span class='op'>&lt;-</span> <span class='va'>rf_wflow</span> <span class='op'>%&gt;%</span> <span class='fu'>fit</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>titanic_imputed</span><span class='op'>)</span>
+<span class='va'>rf_ex_fit</span> <span class='op'>&lt;-</span> <span class='va'>rf_fit</span> <span class='op'>%&gt;%</span> <span class='fu'>extract_fit_parsnip</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<ul>
+<li>shap &lt;- explain(xgb_ex_fit$fit, X = X, exact = T)</li>
+<li>xgboost, lm만 exact = T 가능, 나머지 불가능(공식 문서 참고)</li>
+</ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/bgreenwell/fastshap'>fastshap</a></span><span class='op'>)</span>
-<span class='va'>X</span> <span class='op'>&lt;-</span> <span class='fu'>prep</span><span class='op'>(</span><span class='va'>ames_rec</span>, <span class='va'>ames_train</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>juice</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>Sale_Price</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>rf_ex_fit</span><span class='op'>$</span><span class='va'>fit</span>, <span class='va'>titanic_imputed</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Ranger prediction
 
-<span class='va'>shap</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/fastshap/man/explain.html'>explain</a></span><span class='op'>(</span><span class='va'>xgb_ex_fit</span><span class='op'>$</span><span class='va'>fit</span>, X <span class='op'>=</span> <span class='va'>X</span>, exact <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+Type:                             Probability estimation 
+Sample size:                      2207 
+Number of independent variables:  7 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>rf_ex_fit</span><span class='op'>$</span><span class='va'>fit</span>, <span class='va'>titanic_imputed</span><span class='op'>)</span><span class='op'>$</span><span class='va'>predictions</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>             0          1
+[1,] 0.9005977 0.09940235
+[2,] 0.7393042 0.26069579
+[3,] 0.8603494 0.13965064
+[4,] 0.4115457 0.58845434
+[5,] 0.2984262 0.70157385
+[6,] 0.7680580 0.23194202</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pred_fun</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>X.model</span>, <span class='va'>newdata</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>X.model</span>, <span class='va'>newdata</span><span class='op'>)</span><span class='op'>$</span><span class='va'>predictions</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>]</span>
+<span class='op'>}</span>
+
+<span class='va'>shap</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/fastshap/man/explain.html'>explain</a></span><span class='op'>(</span><span class='va'>rf_ex_fit</span><span class='op'>$</span><span class='va'>fit</span>, X <span class='op'>=</span> <span class='va'>titanic_imputed</span>, pred_wrapper <span class='op'>=</span> <span class='va'>pred_fun</span>, nsim <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>
+
 <span class='fu'>autoplot</span><span class='op'>(</span><span class='va'>shap</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="machine-learning-explainability_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="machine-learning-explainability_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
-<p><strong>Partial dependence plot</strong></p>
+<p><strong>Shapley dependence plot</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>feat</span> <span class='op'>&lt;-</span> <span class='fu'>prep</span><span class='op'>(</span><span class='va'>ames_rec</span>, <span class='va'>ames_train</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>juice</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pred_fun</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>X.model</span>, <span class='va'>newdata</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>X.model</span>, <span class='va'>newdata</span><span class='op'>)</span><span class='op'>$</span><span class='va'>predictions</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>]</span>
+<span class='op'>}</span>
 
-<span class='fu'>autoplot</span><span class='op'>(</span><span class='va'>shap</span>, 
-         type <span class='op'>=</span> <span class='st'>"dependence"</span>, 
-         feature <span class='op'>=</span> <span class='st'>"Gr_Liv_Area"</span>, 
-         X <span class='op'>=</span> <span class='va'>feat</span>,
-         smooth <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> 
+<span class='fu'>autoplot</span><span class='op'>(</span><span class='va'>shap</span>, type <span class='op'>=</span> <span class='st'>"dependence"</span>, feature <span class='op'>=</span> <span class='st'>"fare"</span>, X <span class='op'>=</span> <span class='va'>titanic_imputed</span>, smooth <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
-<img src="machine-learning-explainability_files/figure-html5/unnamed-chunk-10-1.png" width="624" />
+<p><img src="machine-learning-explainability_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<p><strong>contribution plot</strong></p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r">         <span class='co'>#color_by = "Status")</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>autoplot</span><span class='op'>(</span><span class='va'>shap</span>, type <span class='op'>=</span> <span class='st'>"contribution"</span>, row_num <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 </code></pre>
 </div>
+<p><img src="machine-learning-explainability_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/fastshap/man/forceplot.html'>force_plot</a></span><span class='op'>(</span><span class='va'>shap</span><span class='op'>[</span><span class='fl'>1</span>,<span class='op'>]</span>, baseline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'>pred_fun</span><span class='op'>(</span><span class='va'>rf_ex_fit</span>, <span class='va'>titanic_imputed</span><span class='op'>)</span><span class='op'>)</span>, feature_values <span class='op'>=</span> <span class='va'>titanic_imputed</span><span class='op'>[</span><span class='fl'>1</span>,<span class='op'>]</span>, display <span class='op'>=</span> <span class='st'>"html"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error in file(con, &quot;r&quot;): 커넥션을 열 수 없습니다</code></pre>
+</div>
+<p><a href="http://xai-tools.drwhy.ai/fastshap.html" class="uri">http://xai-tools.drwhy.ai/fastshap.html</a></p>
 <p><strong>참고자료</strong></p>
 <p><a href="https://www.kaggle.com/dansbecker/use-cases-for-model-insights" class="uri">https://www.kaggle.com/dansbecker/use-cases-for-model-insights</a></p>
 <p><a href="https://www.kaggle.com/dansbecker/permutation-importance" class="uri">https://www.kaggle.com/dansbecker/permutation-importance</a></p>
@@ -2596,7 +2898,9 @@ Training error : 0.278962 </code></pre>
 <p><a href="https://cran.r-project.org/web/packages/fastshap/fastshap.pdf" class="uri">https://cran.r-project.org/web/packages/fastshap/fastshap.pdf</a></p>
 <p><a href="https://www.youtube.com/watch?v=lIT5-piVtRw" class="uri">https://www.youtube.com/watch?v=lIT5-piVtRw</a></p>
 <p><a href="https://www.hfshr.xyz/posts/2020-06-07-variable-importance-with-fastshap/" class="uri">https://www.hfshr.xyz/posts/2020-06-07-variable-importance-with-fastshap/</a></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p><a href="https://bradleyboehmke.github.io/HOML/iml.html" class="uri">https://bradleyboehmke.github.io/HOML/iml.html</a></p>
+<p><a href="https://ema.drwhy.ai/shapley.html#SHAPRcode" class="uri">https://ema.drwhy.ai/shapley.html#SHAPRcode</a></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
