@@ -208,18 +208,12 @@ model_rec <- train %>%
   step_mutate(
               disc_employed = month_employed) %>%
   
-#  step_cut(disc_birth, breaks = c(10, 20, 30, 40)) %>% 
   step_cut(disc_employed, breaks = c(407, 458, 491, 523, 12699)) %>%
-#  step_cut(disc_begin, breaks = c(1, 2, 3, 4)) %>% 
-  
+
   step_other(income_type, occyp_type, house_type, threshold = 0.1, other = 'infreq_combined') %>% 
-  
   step_impute_bag(occyp_type, impute_with = imp_vars(car, reality, income_total, income_type, edu_type, house_type, family_type, family_size),  trees = 100) %>% 
-  
-#  step_dummy(all_nominal(), -credit, one_hot = TRUE) %>%
   step_normalize(all_numeric(), -all_outcomes()) %>% 
   step_rm(days_birth, days_employed, begin_month, month_employed)
-  #step_smote(credit, over_ratio = tune()) 
 
 ```
 

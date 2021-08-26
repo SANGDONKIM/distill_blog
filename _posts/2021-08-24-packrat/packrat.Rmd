@@ -1,0 +1,99 @@
+---
+title: "packrat"
+description: |
+  packrat과 docker를 활용한 독립된 프로젝트 구축 방법 
+author:
+  - name: dondon
+    url: {}
+date: 2021-08-24
+output:
+  distill::distill_article:
+    toc: true
+    #toc_depth: 3
+    self_contained: false
+    #highlight: default
+    #highlight_downlit: true
+    #code_folding: false
+ditor_options: 
+  chunk_output_type: console
+categories:
+  - R 
+---
+
+
+
+
+
+# packrat 소개 
+
+packrat은 프로젝트 별로 독립된 환경을 구축해주는 패키지이다. 
+보통 Rstudio에서 프로젝트를 관리할 때 모든 프로젝트는 현재 설치된 R 최신 버전에 맞는 하나의 패키지 소스에서 불러온다(패키지 설치 경로는 **.libs**로 확인할 수 있다). R 최신 버전을 사용할 때는 문제가 없지만 R 이전 버전 혹은 패키지 이전 버전을 사용해야할 경우 R을 버전에 맞게 또 설치해주어야하고 패키지도 버전을 낮춰서 재설치해주어야 하기 때문에 매우 번거롭다. 또 패키지 버전을 낮추게 되면 패키지 끼리 충돌이 일어날 수 있고, 다른 프로젝트에서 분석을 진행할 때 영향을 미치기 때문에 버전 업을 해줘야 한다. 
+
+
+
+
+
+# docker 소개 
+
+docker 설치 방법 및 구동 방법은 <https://www.youtube.com/watch?v=VVxvL4xRPjU> 에 잘 정리되어있다. 
+
+
+\$  docker pull rocker/rstudio:3.6.0 
+
+\$ docker run -d -e USERID=\$UID -e PASSWORD=1111 -v \${pwd}:/work -p 7009:8787 rocker/rstudio:3.6.0
+
+
+업데이트 예정 
+
+
+
+# packrat 사용법 
+
+server에서 저장한 파일이 local 환경에도 저장된다. 
+
+```{r, eval = FALSE}
+setwd('/work')
+
+install.packages("packrat")
+
+packrat::init("/work")
+
+.libPaths()
+
+packrat::on("/work")
+
+.libPaths()
+
+install.packages("tidyverse")
+
+```
+
+
+
+업데이트 예정 
+
+
+
+
+**참고 자료**
+
+<https://www.youtube.com/watch?v=Z0Tm-Y7vzNQ>
+
+<https://www.youtube.com/watch?v=VVxvL4xRPjU>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

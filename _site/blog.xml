@@ -7,7 +7,16 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 05 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>packrat</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-08-24-packrat</link>
+      <description>packrat과 docker를 활용한 독립된 프로젝트 구축 방법</description>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-08-24-packrat</guid>
+      <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>tidymodels using bayes optimization</title>
       <dc:creator>dondon</dc:creator>
