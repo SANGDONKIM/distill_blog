@@ -7,6 +7,7 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
+<<<<<<< HEAD
     <lastBuildDate>Tue, 24 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>packrat</title>
@@ -16,6 +17,19 @@
       <category>R</category>
       <guid>https://dondon-blog.netlify.app/posts/2021-08-24-packrat</guid>
       <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
+=======
+    <lastBuildDate>Thu, 29 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>machine learning explainability</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-07-29-machine-learning-explainability</link>
+      <description>feature importance, partial dependence plot, shap value 소개</description>
+      <category>Statistics</category>
+      <category>Machine learning</category>
+      <guid>https://dondon-blog.netlify.app/posts/2021-07-29-machine-learning-explainability</guid>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2021-07-29-machine-learning-explainability/machine-learning-explainability_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+>>>>>>> 05d16250479da9052628f5dea22a1106447270d8
     </item>
     <item>
       <title>tidymodels using bayes optimization</title>

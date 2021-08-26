@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://dondon-blog.netlify.app/blog.html</loc>
-    <lastmod>2021-06-12T18:49:57+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:06+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/</loc>
-    <lastmod>2021-06-14T21:38:47+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:06+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://dondon-blog.netlify.app/posts/2021-07-29-machine-learning-explainability/</loc>
+    <lastmod>2021-08-01T06:54:42+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-08-24-packrat/</loc>
@@ -14,78 +18,78 @@
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-07-05-tidymodels-using-bayes-optimization/</loc>
-    <lastmod>2021-07-06T16:48:01+09:00</lastmod>
+    <lastmod>2021-07-29T00:54:21+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-18-multiple-test/</loc>
-    <lastmod>2021-07-06T17:51:40+09:00</lastmod>
+    <lastmod>2021-07-29T00:54:21+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-building-distill/</loc>
-    <lastmod>2021-06-14T18:52:19+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-em-algorithm/</loc>
-    <lastmod>2021-06-12T20:52:15+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-nonparametric-regression/</loc>
-    <lastmod>2021-06-12T20:44:27+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-arima-with-r/</loc>
-    <lastmod>2021-06-12T22:10:58+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-multi-classification-with-tidymodels/</loc>
-    <lastmod>2021-06-12T22:14:26+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-stacking-with-tidymodels-and-caret/</loc>
-    <lastmod>2021-06-14T13:21:16+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-tidymodels-tutorial/</loc>
-    <lastmod>2021-06-12T21:51:13+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-modeltime-with-tidymodels/</loc>
-    <lastmod>2021-06-14T17:03:12+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-xgboost-with-tidymodels/</loc>
-    <lastmod>2021-06-14T15:09:25+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-generalized-linear-model-using-r/</loc>
-    <lastmod>2021-06-12T21:47:13+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-tmap-in-r/</loc>
-    <lastmod>2021-06-14T14:51:20+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-map-visualization-using-sf/</loc>
-    <lastmod>2021-06-14T14:55:05+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-admm/</loc>
-    <lastmod>2021-06-12T21:31:26+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-gradient-boosting-regression/</loc>
-    <lastmod>2021-06-12T21:27:44+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-kernel-density-estimation/</loc>
-    <lastmod>2021-06-14T13:47:34+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-markov-chain-monte-carlo/</loc>
-    <lastmod>2021-06-14T13:46:52+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
   <url>
     <loc>https://dondon-blog.netlify.app/posts/2021-06-12-split-the-map-into-a-grid-using-sf/</loc>
-    <lastmod>2021-06-12T21:17:41+09:00</lastmod>
+    <lastmod>2021-06-15T16:29:04+09:00</lastmod>
   </url>
 </urlset>

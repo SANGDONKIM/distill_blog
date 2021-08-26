@@ -5,14 +5,22 @@
       "title": "blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
+<<<<<<< HEAD
       "last_modified": "2021-08-26T17:13:50+09:00"
+=======
+      "last_modified": "2021-08-01T06:58:19+09:00"
+>>>>>>> 05d16250479da9052628f5dea22a1106447270d8
     },
     {
       "path": "index.html",
       "title": "SANGDON KIM ",
       "author": [],
       "contents": "\r\n\r\n          \r\n          \r\n          \r\n          \r\n          DonDon\r\n          \r\n          \r\n          About\r\n          Blog\r\n          \r\n          \r\n          \r\n          \r\n          \r\n          \r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            \r\n              \r\n            \r\n              SANGDON KIM\r\n            \r\n            \r\n              \r\n                \r\n                    \r\n                      \r\n                        GitHub\r\n                      \r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      \r\n                        LinkedIn\r\n                      \r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      \r\n                        Email\r\n                      \r\n                    \r\n                  \r\n                                  \r\n            \r\n          \r\n        \r\n        \r\n        \r\n          \r\n            \r\n            Hey There!\r\n            Welcome to my personal site! I’m enrolled in the Master program at University of Seoul. I specialize in using R, python for data analysis, data visualizations. I am also passionate about making bike-sharing systems more efficient.\r\n            If you would like to collaborate, please contact us by email.\r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n      \r\n        \r\n          \r\n            \r\n              \r\n            \r\n              SANGDON KIM\r\n            \r\n            \r\n              \r\n                \r\n                                    \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                                  \r\n              \r\n            \r\n            \r\n              \r\n              Hey There!\r\n              Welcome to my personal site! I’m enrolled in the Master program at University of Seoul. I specialize in using R, python for data analysis, data visualizations. I am also passionate about making bike-sharing systems more efficient.\r\n              If you would like to collaborate, please contact us by email.\r\n              \r\n            \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
+<<<<<<< HEAD
       "last_modified": "2021-08-26T17:13:50+09:00"
+=======
+      "last_modified": "2021-08-01T06:58:19+09:00"
+>>>>>>> 05d16250479da9052628f5dea22a1106447270d8
     }
   ],
   "collections": ["posts/posts.json"]
