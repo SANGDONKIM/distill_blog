@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -78,7 +78,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -1860,7 +1860,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2145,6 +2148,7 @@ function init_posts_list() {
 
       // mark posts that match the category visible
       var page_category = window.location.hash.replace(/^#category:/, "");
+      page_category = decodeURIComponent(page_category)
       var posts = $('.post-metadata').map(function(idx, script) {
         var metadata = $.parseJSON($(script).html());
         var post = null;
@@ -2160,7 +2164,7 @@ function init_posts_list() {
       set_posts_visible(posts, true);
 
       // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
 
       // update the list_caption
       var list_caption = $('.posts-list-caption');
@@ -2223,9 +2227,8 @@ function init_posts_list() {
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="blog">blog</h1>
-<<<<<<< HEAD
 <a href="posts/2021-08-24-packrat/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R"]}</script>
+<script class="post-metadata" type="text/json">{"categories":["docker"]}</script>
 <div class="metadata">
 <div class="publishedDate">Aug. 24, 2021</div>
 </div>
@@ -2235,10 +2238,11 @@ function init_posts_list() {
 <div class="description">
 <h2>packrat</h2>
 <div class="dt-tags">
-<div class="dt-tag">R</div>
+<div class="dt-tag">docker</div>
 </div>
-<p>packrat과 docker를 활용한 독립된 프로젝트 구축 방법</p>
-=======
+<p>introduction to packrat</p>
+</div>
+</a>
 <a href="posts/2021-07-29-machine-learning-explainability/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["Statistics","Machine learning"]}</script>
 <div class="metadata">
@@ -2254,7 +2258,6 @@ function init_posts_list() {
 <div class="dt-tag">Machine learning</div>
 </div>
 <p>feature importance, partial dependence plot, shap value 소개</p>
->>>>>>> 05d16250479da9052628f5dea22a1106447270d8
 </div>
 </a>
 <a href="posts/2021-07-05-tidymodels-using-bayes-optimization/" class="post-preview">
@@ -2311,7 +2314,7 @@ function init_posts_list() {
 <div class="publishedDate">June 12, 2021</div>
 </div>
 <div class="thumbnail">
-<img src="posts/2021-06-12-em-algorithm/em-algorithm_files/figure-html5/unnamed-chunk-1-1.png"/>
+<img data-src="posts/2021-06-12-em-algorithm/em-algorithm_files/figure-html5/unnamed-chunk-1-1.png"/>
 </div>
 <div class="description">
 <h2>EM algorithm</h2>
@@ -2594,7 +2597,7 @@ function init_posts_list() {
 <ul>
 <li>
 <a href="#category:Articles">Articles</a>
-<span class="category-count">(20)</span>
+<span class="category-count">(21)</span>
 </li>
 <li>
 <a href="#category:caret">caret</a>
@@ -2602,6 +2605,10 @@ function init_posts_list() {
 </li>
 <li>
 <a href="#category:Dacon">Dacon</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:docker">docker</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
@@ -2622,7 +2629,7 @@ function init_posts_list() {
 </li>
 <li>
 <a href="#category:R">R</a>
-<span class="category-count">(17)</span>
+<span class="category-count">(16)</span>
 </li>
 <li>
 <a href="#category:Statistics">Statistics</a>

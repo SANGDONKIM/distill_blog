@@ -1,7 +1,7 @@
 ---
 title: "packrat"
 description: |
-  packrat과 docker를 활용한 독립된 프로젝트 구축 방법 
+  introduction to packrat
 author:
   - name: dondon
     url: {}
@@ -9,18 +9,10 @@ date: 2021-08-24
 output:
   distill::distill_article:
     toc: true
-    #toc_depth: 3
-    self_contained: false
-    #highlight: default
-    #highlight_downlit: true
-    #code_folding: false
-ditor_options: 
-  chunk_output_type: console
+    code_folding: false
 categories:
-  - R 
+  - docker
 ---
-
-
 
 
 
@@ -80,6 +72,8 @@ install.packages("tidyverse")
 <https://www.youtube.com/watch?v=Z0Tm-Y7vzNQ>
 
 <https://www.youtube.com/watch?v=VVxvL4xRPjU>
+
+
 
 
 
