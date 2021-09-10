@@ -9,10 +9,10 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 24 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>packrat</title>
+      <title>packrat and renv</title>
       <dc:creator>dondon</dc:creator>
       <link>https://dondon-blog.netlify.app/posts/2021-08-24-packrat</link>
-      <description>introduction to packrat</description>
+      <description>introduction to packrat, renv</description>
       <category>docker</category>
       <guid>https://dondon-blog.netlify.app/posts/2021-08-24-packrat</guid>
       <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
