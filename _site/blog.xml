@@ -7,7 +7,15 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 24 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>docker</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2021-10-02-docker</link>
+      <description>introduction to rocker</description>
+      <guid>https://dondon-blog.netlify.app/posts/2021-10-02-docker</guid>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>packrat and renv</title>
       <dc:creator>dondon</dc:creator>

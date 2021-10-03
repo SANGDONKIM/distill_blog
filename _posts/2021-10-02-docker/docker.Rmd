@@ -1,0 +1,32 @@
+---
+title: "docker"
+description: |
+  introduction to rocker 
+author:
+  - name: dondon
+    url: {}
+date: 2021-10-02
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+
+## Reference
+
+**docker tutorial** 
+
+<https://jsta.github.io/r-docker-tutorial/>
+
+**docker build 명령어 요약** 
+
+<https://blog.d0ngd0nge.xyz/docker-dockerfile-write/>
+
+**rocker에서 package 빠르게 설치해서 굽는 법**
+
+<https://stackoverflow.com/questions/51500385/how-to-speed-up-r-packages-installation-in-docke>
+
+**r-base vs r-apt 속도 비교**
+
+<https://datawookie.dev/blog/2019/01/docker-images-for-r-r-base-versus-r-apt/>
