@@ -83,7 +83,7 @@ CMD ["Rscript", "Server.R"]
 
 ```
 
-# Full code 
+# Full code
 
 ```{r, eval = F}
 FROM rocker/r-apt:bionic
