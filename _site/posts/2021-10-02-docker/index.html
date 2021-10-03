@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,13 +77,14 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
 <title>DonDon: docker</title>
@@ -126,7 +127,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["docker_files/anchor-4.2.2/anchor.min.js","docker_files/bowser-1.9.3/bowser.min.js","docker_files/distill-2.2.21/template.v2.js","docker_files/header-attrs-2.11/header-attrs.js","docker_files/jquery-3.6.0/jquery-3.6.0.js","docker_files/jquery-3.6.0/jquery-3.6.0.min.js","docker_files/jquery-3.6.0/jquery-3.6.0.min.map","docker_files/popper-2.6.0/popper.min.js","docker_files/tippy-6.2.7/tippy-bundle.umd.min.js","docker_files/tippy-6.2.7/tippy-light-border.css","docker_files/tippy-6.2.7/tippy.css","docker_files/tippy-6.2.7/tippy.umd.min.js","docker_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["docker_files/anchor-4.2.2/anchor.min.js","docker_files/bowser-1.9.3/bowser.min.js","docker_files/Capture.PNG","docker_files/Capture2.PNG","docker_files/distill-2.2.21/template.v2.js","docker_files/header-attrs-2.11.2/header-attrs.js","docker_files/header-attrs-2.11/header-attrs.js","docker_files/jquery-3.6.0/jquery-3.6.0.js","docker_files/jquery-3.6.0/jquery-3.6.0.min.js","docker_files/jquery-3.6.0/jquery-3.6.0.min.map","docker_files/popper-2.6.0/popper.min.js","docker_files/tippy-6.2.7/tippy-bundle.umd.min.js","docker_files/tippy-6.2.7/tippy-light-border.css","docker_files/tippy-6.2.7/tippy.css","docker_files/tippy-6.2.7/tippy.umd.min.js","docker_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2053,7 +2054,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.11.2/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2126,7 +2127,83 @@ gtag('config', 'G-LESWHZMHS2');
 </div>
 
 <div class="d-article">
+<p>docker 파일을 구울 때 사전에 패키지를 설치하고 싶으면 install.packages를 이용하면 되는데, 이 경우 너무 많은 시간이 걸린다. docker 파일을 굽고 서버에서 install.packages를 해도 마찬가지다. 해결책을 찾아보니 pre-compiled binary package를 이용하면 설치 시간을 10배 이상 단축할 수 있는 것 같다.</p>
+<p>잠시 운영체제에 대한 설명으로 넘어가면 linux에서는 package 관리 방법이 두가지가 있는데 source package와 binary package다. source package는 소스 코드가 있는 패키지로 컴파일 과정을 통해 binary package로 만드는 과정을 거쳐야만 시행될 수 있다. 설치할 때 컴파일 과정도 함께 진행되어야 하므로 설치 시간이 길고, 컴파일 작업 과정에서 오류가 생길 수 있다. 반면 binary package는 컴파일이 완료된 바이너리 파일이 들어있는 패키지이다. 사전에 컴파일이 되어 있으므로, 소스 패키지에 비해 설치 시간이 짧고, 오류가 발생될 가능성이 적다.</p>
+<p>대부분 바이너리 패키지를 이용하지만 소프트웨어를 원하는데로 수정하고 싶을 때는 소스 패키지를 이용한다. 바이너리 패키지는 설치시간이 비교적 짧지만 바이너리 패키지를 실행하기 위해서는 다른 특정 패키지가 필요할 수 있는데, 이를 패키지 의존성이라고 한다.</p>
+<p>패키지 의존성을 해결해주는, 즉 패키지 간의 연결관계를 파악하고 자동으로 필요한 패키지를 설치해주는 도구가 존재하는데 <strong>apt-get, apt</strong> 등이 있다.</p>
+<p>다시 R로 넘어가서 linux에 대한 이해를 바탕으로 유추를 해보면 docker 파일을 구울 때 install.packages는 source package에 해당하고, pre-compiled binary package는 binary package를 의미하는 것 같다. 즉 binary package의 장점을 이용해서 속도가 빨라지는 것이라고 이해하면 될 것 같다.</p>
+<h1 id="build-docker-file">Build docker file</h1>
+<p>rocker에서 사전에 구워진 우분투 버전 r-apt를 불러오기</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FROM rocker<span class="sc">/</span>r<span class="sc">-</span>apt<span class="sc">:</span>bionic</span></code></pre></div>
+</div>
+<p>WORKDIR : ‘RUN’(Shell script 또는 명령을 실행), ‘CMD’(컨테이너가 실행되었을 때 명령이 실행), ‘ENTRYPOINT’(컨테이너가 시작되었을 때 스크립트 실행) 명령이 실행될 작업 디렉토리 설정하기</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>WORKDIR</span> <span class='op'>/</span><span class='va'>app</span>
+</code></pre>
+</div>
+</div>
+<p>RUN apt-get update : 운영체제에서 사용가능한 패키지 및 버전에 대한 정보 업데이트<br />
+apt-get install -y libxml2-dev : libxml2 패키지 설치</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RUN apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> \</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  apt<span class="sc">-</span>get install <span class="sc">-</span>y libxml2<span class="sc">-</span>dev</span></code></pre></div>
+</div>
+<p>requirement-bin.txt 파일을 Dockerfile이 있는 폴더에 위치시켜야 한다.</p>
+<p>requirement-bin.txt 파일 안에는 다음과 같이 패키지 명을 입력해준다.</p>
+<p><img src="docker_files/Capture.PNG" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#COPY ./requirements-bin.txt .</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RUN cat requirements<span class="sc">-</span>bin.txt <span class="sc">|</span> xargs apt<span class="sc">-</span>get install <span class="sc">-</span>y <span class="sc">-</span>qq</span></code></pre></div>
+</div>
+<p>source package로 설치하고 싶을 경우 requirements-src.R 파일을 따로 만들어준다.</p>
+<p>requirements-src.R 파일 안에는 다음과 같이 입력해준다.</p>
+<p><img src="docker_files/Capture2.PNG" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install remaining packages from source</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>COPY .<span class="sc">/</span>requirements<span class="sc">-</span>src.R .</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>RUN Rscript requirements<span class="sc">-</span>src.R</span></code></pre></div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up package registry</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>RUN rm <span class="sc">-</span>rf <span class="sc">/</span>var<span class="sc">/</span>lib<span class="sc">/</span>apt<span class="sc">/</span>lists<span class="sc">/</span><span class="er">*</span></span></code></pre></div>
+</div>
+<p>EXPOSE : 호스트와 연결할 포트 번호 지정</p>
+<p>CMD : 컨테이너가 실행되었을 때 명령이 실행</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#COPY ./src /app</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>EXPOSE <span class="dv">5000</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>CMD [<span class="st">&quot;Rscript&quot;</span>, <span class="st">&quot;Server.R&quot;</span>]</span></code></pre></div>
+</div>
+<h1 id="full-code">Full code</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>FROM rocker<span class="sc">/</span>r<span class="sc">-</span>apt<span class="sc">:</span>bionic</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>WORKDIR <span class="sc">/</span>app</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>RUN apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> \</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  apt<span class="sc">-</span>get install <span class="sc">-</span>y libxml2<span class="sc">-</span>dev</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/51500385/how-to-speed-up-r-packages-installation-in-docker</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install binaries (see https://datawookie.netlify.com/blog/2019/01/docker-images-for-r-r-base-versus-r-apt/)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#COPY ./requirements-bin.txt .</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>RUN cat requirements<span class="sc">-</span>bin.txt <span class="sc">|</span> xargs apt<span class="sc">-</span>get install <span class="sc">-</span>y <span class="sc">-</span>qq</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Install remaining packages from source</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>COPY .<span class="sc">/</span>requirements<span class="sc">-</span>src.R .</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>RUN Rscript requirements<span class="sc">-</span>src.R</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up package registry</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>RUN rm <span class="sc">-</span>rf <span class="sc">/</span>var<span class="sc">/</span>lib<span class="sc">/</span>apt<span class="sc">/</span>lists<span class="sc">/</span><span class="er">*</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#COPY ./src /app</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>EXPOSE <span class="dv">5000</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>CMD [<span class="st">&quot;Rscript&quot;</span>, <span class="st">&quot;Server.R&quot;</span>]</span></code></pre></div>
+</div>
 <h2 id="reference">Reference</h2>
+<p><strong>linux package 설명</strong></p>
+<p><a href="https://bradbury.tistory.com/227?category=768468" class="uri">https://bradbury.tistory.com/227?category=768468</a></p>
 <p><strong>docker tutorial</strong></p>
 <p><a href="https://jsta.github.io/r-docker-tutorial/" class="uri">https://jsta.github.io/r-docker-tutorial/</a></p>
 <p><strong>docker build 명령어 요약</strong></p>
@@ -2135,7 +2212,7 @@ gtag('config', 'G-LESWHZMHS2');
 <p><a href="https://stackoverflow.com/questions/51500385/how-to-speed-up-r-packages-installation-in-docke" class="uri">https://stackoverflow.com/questions/51500385/how-to-speed-up-r-packages-installation-in-docke</a></p>
 <p><strong>r-base vs r-apt 속도 비교</strong></p>
 <p><a href="https://datawookie.dev/blog/2019/01/docker-images-for-r-r-base-versus-r-apt/" class="uri">https://datawookie.dev/blog/2019/01/docker-images-for-r-r-base-versus-r-apt/</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
