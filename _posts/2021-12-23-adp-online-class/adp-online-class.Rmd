@@ -1,0 +1,20 @@
+---
+title: "ADP online class"
+description: |
+  ADP online class 
+author:
+  - name: dondon
+    url: {}
+date: 2021-12-23
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+ADP 온라인 실전 강의 2기 1월 중순에 리뉴얼해서 오픈합니다.
+
+현재는 1기 녹화본만 시청할 수 있습니다. 
+
+
+<https://statisticsplaybook.com/courses/enrolled/1546112>
