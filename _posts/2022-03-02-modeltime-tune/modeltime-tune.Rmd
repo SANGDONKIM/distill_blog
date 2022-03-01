@@ -1,0 +1,269 @@
+---
+title: "modeltime tune"
+description: |
+  modeltime 튜닝 방법 소개  
+author:
+  - name: dondon
+    url: {}
+date: 2022-03-02
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    highlight: default
+    highlight_downlit: true
+    code_folding: false
+categories:
+  - Machine learning
+  - time series
+  - tidymodels
+  - Dacon 
+  - R
+---
+
+
+
+
+데이터는 데이콘에서 제공하는 발전량 데이터 일부를 뽑아서 활용했다.
+
+## Preparations (준비작업)
+
+### Libraries
+
+```{r load_lib, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(lubridate)
+library(data.table)
+library(skimr)
+library(timetk)
+library(modeltime)
+
+theme_set(theme_bw())
+```
+
+### Data load
+
+```{r, echo=TRUE}
+
+rdata <- read.csv("./_posts/2022-03-02-modeltime-tune/rdata2.csv", fileEncoding = "CP949", encoding = "UTF-8")
+```
+
+## Data overview (데이터 기본정보)
+
+### Data
+
+```{r}
+head(rdata)
+glimpse(rdata)
+skim(rdata)
+```
+
+## Data preprocessing
+
+```{r}
+rdata <- rdata %>% 
+    select(-hour) %>% 
+    mutate(time = ymd_hms(time)) %>% 
+    filter(between(time, ymd('2018-03-01'), ymd('2021-01-31'))) 
+
+rdata %>% glimpse()  
+rdata %>% 
+  summarise(across(.fns = ~sum(is.na(.))/length(.)))
+
+```
+
+## Univariate timeseries analysis
+
+울산 지역의 전력 발전량 데이터만 활용할 것이기 때문에 날짜 변수를 제외한 나머지 변수는 제거했다.
+
+```{r}
+ulsan <- rdata %>% 
+  select(-c(dangjin, warehouse, floating)) %>% 
+  select(time, ulsan) %>% 
+  rename(date = time, value = ulsan)
+```
+
+### Time series visualization
+
+tidymodels의 경우 train/test 분리를 위해서 initial_split()을 활용했는데 시계열 데이터의 경우 특정 날짜를 기준으로 잘라야하기 때문에 Modeltime 패키지에 내장되어있는 initial_time_split()을 이용한다. 특정 날짜를 기준으로 자르고 싶을 경우 timeseries_split()을 이용할 수도 있다.
+
+-   tk_time_series_cv_plan() : split된 object를 데이터프레임으로 전환
+
+-   plot_time_series_cv_plan() : sampling된 데이터를 이용해서 시계열 그래프 생성
+
+```{r}
+initial_time_split(data = ulsan, prop = 0.9) %>% 
+  tk_time_series_cv_plan() %>% 
+  plot_time_series_cv_plan(date, value,
+                           .interact = FALSE, 
+                           .title = "Partition Train / Test")
+
+```
+
+### Split train/test
+
+```{r}
+months <- 1
+
+total_months <- lubridate::interval(base::min(ulsan$date),
+                                    base::max(ulsan$date)) %/%  
+                                    base::months(1)
+
+
+prop <- (total_months - months) / total_months
+
+splits <- rsample::initial_time_split(ulsan, prop = prop)
+
+
+splits %>%
+  timetk::tk_time_series_cv_plan() %>%  
+  timetk::plot_time_series_cv_plan(date, value) 
+
+```
+
+
+```{r}
+
+resamples_tscv_lag <- time_series_cv(
+    data = training(splits) %>% drop_na(),
+    cumulative  = TRUE,
+    initial     = "6 months",
+    assess      = "8 weeks",
+    skip        = "4 weeks",
+    slice_limit = 6
+)
+
+resamples_tscv_lag %>%
+    tk_time_series_cv_plan() %>%
+    plot_time_series_cv_plan(date, value)
+
+```
+
+
+```{r}
+model_spec_nnetar <- nnetar_reg(
+    seasonal_period = 7,
+    non_seasonal_ar = tune(id = "non_seasonal_ar"),
+    seasonal_ar     = tune(),
+    hidden_units    = tune(),
+    num_networks    = 10,
+    penalty         = tune(),
+    epochs          = 50
+) %>%
+    set_engine("nnetar")
+```
+
+
+```{r}
+parameters(model_spec_nnetar)
+
+set.seed(123)
+grid_random(parameters(model_spec_nnetar), size = 10)
+
+modeltime::non_seasonal_ar()
+seasonal_ar()
+hidden_units()
+penalty() %>% dials::value_sample(5)
+```
+
+
+```{r}
+
+# Round 1
+
+set.seed(123)
+grid_spec_nnetar_1 <- grid_latin_hypercube(
+    parameters(model_spec_nnetar),
+    size = 15
+)
+```
+
+
+```{r}
+rec <- recipe(value ~ ., training(splits))
+
+```
+
+
+```{r}
+wflw_fit_nnetar <- workflow() %>% 
+  add_recipe(rec) %>%
+  add_model(model_spec_nnetar)
+```
+
+```{r}
+library(doFuture)
+
+registerDoFuture()
+
+n_cores <- parallel::detectCores()
+
+plan(
+    strategy = cluster,
+    workers  = parallel::makeCluster(n_cores)
+)
+
+# ** TSCV Cross Validation ----
+
+# Round 1
+
+library(tictoc)
+
+tic()
+set.seed(123)
+tune_results_nnetar_1 <- wflw_fit_nnetar %>%
+    tune_grid(
+        resamples = resamples_tscv_lag,
+        grid      = grid_spec_nnetar_1,
+        metrics   = default_forecast_accuracy_metric_set(),
+        control   = control_grid(verbose = TRUE, save_pred = TRUE)
+    )
+toc()
+
+# ** Reset Sequential Plan ----
+
+plan(strategy = sequential)
+
+
+# Show Results
+
+tune_results_nnetar_1
+
+tune_results_nnetar_1 %>% show_best(metric = "rmse", n = Inf)
+
+# Visualize Results
+
+g <- tune_results_nnetar_1 %>%
+    autoplot() +
+    geom_smooth(se = FALSE)
+library(plotly)
+ggplotly(g)
+
+# * Retrain & Assess -----
+
+set.seed(123)
+wflw_fit_nnetar_tscv <- wflw_fit_nnetar %>%
+    finalize_workflow(
+        tune_results_nnetar_1 %>% 
+            show_best(metric = "rmse", n = Inf) %>%
+            dplyr::slice(1)
+    ) %>%
+    fit(training(splits))
+
+wflw_fit_nnetar_tscv
+
+pred <- predict(wflw_fit_nnetar_tscv, testing(splits))
+
+
+testing(splits) %>% 
+  bind_cols(pred) %>% 
+  ggplot() + 
+  geom_line(aes(x = date, y = value), color = "blue") + 
+  geom_line(aes(x = date, y = .pred), color = "red") 
+  
+
+```
+
+

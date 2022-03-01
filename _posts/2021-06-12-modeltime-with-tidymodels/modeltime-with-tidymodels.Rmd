@@ -119,7 +119,7 @@ file_path <- getwd()
 files <- list.files(file_path)
 files
 
-rdata <- fread(file.path(file_path, "rdata.csv"))
+rdata <- read.csv(file.path(file_path, "rdata.csv"), fileEncoding = "CP949", encoding = "UTF-8")
 ```
 
 ## Data overview (데이터 기본정보)
@@ -127,7 +127,6 @@ rdata <- fread(file.path(file_path, "rdata.csv"))
 ### Data
 
 ```{r}
-head(rdata)
 glimpse(rdata)
 skim(rdata)
 ```
