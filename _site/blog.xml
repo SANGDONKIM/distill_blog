@@ -7,7 +7,21 @@
     <description>My personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 24 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>modeltime tune</title>
+      <dc:creator>dondon</dc:creator>
+      <link>https://dondon-blog.netlify.app/posts/2022-03-02-modeltime-tune</link>
+      <description>modeltime 튜닝 방법 소개</description>
+      <category>Machine learning</category>
+      <category>time series</category>
+      <category>tidymodels</category>
+      <category>Dacon</category>
+      <category>R</category>
+      <guid>https://dondon-blog.netlify.app/posts/2022-03-02-modeltime-tune</guid>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://dondon-blog.netlify.app/posts/2022-03-02-modeltime-tune/modeltime-tune_files/figure-html5/unnamed-chunk-16-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>dplyr vs pandas</title>
       <dc:creator>dondon</dc:creator>

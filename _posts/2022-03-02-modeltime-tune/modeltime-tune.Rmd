@@ -45,9 +45,8 @@ theme_set(theme_bw())
 
 ### Data load
 
-```{r, echo=TRUE}
-
-rdata <- read.csv("./_posts/2022-03-02-modeltime-tune/rdata2.csv", fileEncoding = "CP949", encoding = "UTF-8")
+```{r}
+rdata <- read.csv("/Users/sangdon/Desktop/distill_blog/_posts/2022-03-02-modeltime-tune/rdata2.csv", fileEncoding = "CP949", encoding = "UTF-8")
 ```
 
 ## Data overview (데이터 기본정보)
@@ -97,7 +96,7 @@ tidymodels의 경우 train/test 분리를 위해서 initial_split()을 활용했
 initial_time_split(data = ulsan, prop = 0.9) %>% 
   tk_time_series_cv_plan() %>% 
   plot_time_series_cv_plan(date, value,
-                           .interact = FALSE, 
+                           .interact = TRUE, 
                            .title = "Partition Train / Test")
 
 ```
@@ -171,8 +170,6 @@ penalty() %>% dials::value_sample(5)
 
 ```{r}
 
-# Round 1
-
 set.seed(123)
 grid_spec_nnetar_1 <- grid_latin_hypercube(
     parameters(model_spec_nnetar),
@@ -182,8 +179,16 @@ grid_spec_nnetar_1 <- grid_latin_hypercube(
 
 
 ```{r}
-rec <- recipe(value ~ ., training(splits))
+rec <- recipe(value ~ ., training(splits)) %>% 
+    step_timeseries_signature(date) %>% 
+    step_rm(matches("(.iso)|(.xts)|(hour)|(minute)|(second)|(am.pm)")) %>% 
+    step_normalize(matches("(index.num)|(year)|(yday)")) %>% 
+    step_dummy(all_nominal(),one_hot = TRUE) %>% 
+    step_interact(~ matches("week2")*matches("wday.lbl")) %>% 
+    step_fourier(date, period = c(7,14,30,90,365), K = 2)
 
+  
+rec %>% prep() %>% juice() %>% head()
 ```
 
 
@@ -205,9 +210,6 @@ plan(
     workers  = parallel::makeCluster(n_cores)
 )
 
-# ** TSCV Cross Validation ----
-
-# Round 1
 
 library(tictoc)
 
@@ -225,24 +227,28 @@ toc()
 # ** Reset Sequential Plan ----
 
 plan(strategy = sequential)
+```
 
 
-# Show Results
+```{r}
+
 
 tune_results_nnetar_1
 
 tune_results_nnetar_1 %>% show_best(metric = "rmse", n = Inf)
+```
 
-# Visualize Results
+```{r}
 
 g <- tune_results_nnetar_1 %>%
     autoplot() +
     geom_smooth(se = FALSE)
 library(plotly)
 ggplotly(g)
+```
 
-# * Retrain & Assess -----
 
+```{r}
 set.seed(123)
 wflw_fit_nnetar_tscv <- wflw_fit_nnetar %>%
     finalize_workflow(
@@ -257,13 +263,13 @@ wflw_fit_nnetar_tscv
 pred <- predict(wflw_fit_nnetar_tscv, testing(splits))
 
 
-testing(splits) %>% 
+result <- testing(splits) %>% 
   bind_cols(pred) %>% 
   ggplot() + 
   geom_line(aes(x = date, y = value), color = "blue") + 
   geom_line(aes(x = date, y = .pred), color = "red") 
   
-
+ggplotly(result)
 ```
 
 
